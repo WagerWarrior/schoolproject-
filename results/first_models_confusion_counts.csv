@@ -1,0 +1,4 @@
+model,true_negative,false_positive,false_negative,true_positive
+Baseline,2402,0,1137,0
+Logistic A,2145,257,722,415
+Logistic B,2221,181,424,713

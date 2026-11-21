@@ -1,0 +1,900 @@
+{
+  "Marital status": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "single"
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "married"
+    },
+    "3": {
+      "uci_code": 3,
+      "meaning": "widower"
+    },
+    "4": {
+      "uci_code": 4,
+      "meaning": "divorced"
+    },
+    "5": {
+      "uci_code": 5,
+      "meaning": "facto union"
+    },
+    "6": {
+      "uci_code": 6,
+      "meaning": "legally separated"
+    }
+  },
+  "Application mode": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "1st phase - general contingent"
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "Ordinance No. 612/93"
+    },
+    "3": {
+      "uci_code": 5,
+      "meaning": "1st phase - special contingent (Azores Island)"
+    },
+    "4": {
+      "uci_code": 7,
+      "meaning": "Holders of other higher courses"
+    },
+    "5": {
+      "uci_code": 10,
+      "meaning": "Ordinance No. 854-B/99"
+    },
+    "6": {
+      "uci_code": 15,
+      "meaning": "International student (bachelor)"
+    },
+    "7": {
+      "uci_code": 16,
+      "meaning": "1st phase - special contingent (Madeira Island)"
+    },
+    "8": {
+      "uci_code": 17,
+      "meaning": "2nd phase - general contingent"
+    },
+    "9": {
+      "uci_code": 18,
+      "meaning": "3rd phase - general contingent"
+    },
+    "10": {
+      "uci_code": 26,
+      "meaning": "Ordinance No. 533-A/99, item b2) (Different Plan)"
+    },
+    "11": {
+      "uci_code": 27,
+      "meaning": "Ordinance No. 533-A/99, item b3 (Other Institution)"
+    },
+    "12": {
+      "uci_code": 39,
+      "meaning": "Over 23 years old"
+    },
+    "13": {
+      "uci_code": 42,
+      "meaning": "Transfer"
+    },
+    "14": {
+      "uci_code": 43,
+      "meaning": "Change of course"
+    },
+    "15": {
+      "uci_code": 44,
+      "meaning": "Technological specialization diploma holders"
+    },
+    "16": {
+      "uci_code": 51,
+      "meaning": "Change of institution/course"
+    },
+    "17": {
+      "uci_code": 53,
+      "meaning": "Short cycle diploma holders"
+    },
+    "18": {
+      "uci_code": 57,
+      "meaning": "Change of institution/course (International)"
+    }
+  },
+  "Course": {
+    "1": {
+      "uci_code": 33,
+      "meaning": "Biofuel Production Technologies"
+    },
+    "2": {
+      "uci_code": 171,
+      "meaning": "Animation and Multimedia Design"
+    },
+    "3": {
+      "uci_code": 8014,
+      "meaning": "Social Service (evening attendance)"
+    },
+    "4": {
+      "uci_code": 9003,
+      "meaning": "Agronomy"
+    },
+    "5": {
+      "uci_code": 9070,
+      "meaning": "Communication Design"
+    },
+    "6": {
+      "uci_code": 9085,
+      "meaning": "Veterinary Nursing"
+    },
+    "7": {
+      "uci_code": 9119,
+      "meaning": "Informatics Engineering"
+    },
+    "8": {
+      "uci_code": 9130,
+      "meaning": "Equinculture"
+    },
+    "9": {
+      "uci_code": 9147,
+      "meaning": "Management"
+    },
+    "10": {
+      "uci_code": 9238,
+      "meaning": "Social Service"
+    },
+    "11": {
+      "uci_code": 9254,
+      "meaning": "Tourism"
+    },
+    "12": {
+      "uci_code": 9500,
+      "meaning": "Nursing"
+    },
+    "13": {
+      "uci_code": 9556,
+      "meaning": "Oral Hygiene"
+    },
+    "14": {
+      "uci_code": 9670,
+      "meaning": "Advertising and Marketing Management"
+    },
+    "15": {
+      "uci_code": 9773,
+      "meaning": "Journalism and Communication"
+    },
+    "16": {
+      "uci_code": 9853,
+      "meaning": "Basic Education"
+    },
+    "17": {
+      "uci_code": 9991,
+      "meaning": "Management (evening attendance)"
+    }
+  },
+  "Previous qualification": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "Secondary education"
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "Higher education - bachelor's degree"
+    },
+    "3": {
+      "uci_code": 3,
+      "meaning": "Higher education - degree"
+    },
+    "4": {
+      "uci_code": 4,
+      "meaning": "Higher education - master's"
+    },
+    "5": {
+      "uci_code": 5,
+      "meaning": "Higher education - doctorate"
+    },
+    "6": {
+      "uci_code": 6,
+      "meaning": "Frequency of higher education"
+    },
+    "7": {
+      "uci_code": 9,
+      "meaning": "12th year of schooling - not completed"
+    },
+    "8": {
+      "uci_code": 10,
+      "meaning": "11th year of schooling - not completed"
+    },
+    "9": {
+      "uci_code": 12,
+      "meaning": "Other - 11th year of schooling"
+    },
+    "10": {
+      "uci_code": 14,
+      "meaning": "10th year of schooling"
+    },
+    "11": {
+      "uci_code": 15,
+      "meaning": "10th year of schooling - not completed"
+    },
+    "12": {
+      "uci_code": 19,
+      "meaning": "Basic education 3rd cycle (9th/10th/11th year) or equiv."
+    },
+    "13": {
+      "uci_code": 38,
+      "meaning": "Basic education 2nd cycle (6th/7th/8th year) or equiv."
+    },
+    "14": {
+      "uci_code": 39,
+      "meaning": "Technological specialization course"
+    },
+    "15": {
+      "uci_code": 40,
+      "meaning": "Higher education - degree (1st cycle)"
+    },
+    "16": {
+      "uci_code": 42,
+      "meaning": "Professional higher technical course"
+    },
+    "17": {
+      "uci_code": 43,
+      "meaning": "Higher education - master (2nd cycle)"
+    }
+  },
+  "Nacionality": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "Portuguese"
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "German"
+    },
+    "3": {
+      "uci_code": 6,
+      "meaning": "Spanish"
+    },
+    "4": {
+      "uci_code": 11,
+      "meaning": "Italian"
+    },
+    "5": {
+      "uci_code": 13,
+      "meaning": "Dutch"
+    },
+    "6": {
+      "uci_code": 14,
+      "meaning": "English"
+    },
+    "7": {
+      "uci_code": 17,
+      "meaning": "Lithuanian"
+    },
+    "8": {
+      "uci_code": 21,
+      "meaning": "Angolan"
+    },
+    "9": {
+      "uci_code": 22,
+      "meaning": "Cape Verdean"
+    },
+    "10": {
+      "uci_code": 24,
+      "meaning": "Guinean"
+    },
+    "11": {
+      "uci_code": 25,
+      "meaning": "Mozambican"
+    },
+    "12": {
+      "uci_code": 26,
+      "meaning": "Santomean"
+    },
+    "13": {
+      "uci_code": 32,
+      "meaning": "Turkish"
+    },
+    "14": {
+      "uci_code": 41,
+      "meaning": "Brazilian"
+    },
+    "15": {
+      "uci_code": 62,
+      "meaning": "Romanian"
+    },
+    "16": {
+      "uci_code": 100,
+      "meaning": "Moldova (Republic of)"
+    },
+    "17": {
+      "uci_code": 101,
+      "meaning": "Mexican"
+    },
+    "18": {
+      "uci_code": 103,
+      "meaning": "Ukrainian"
+    },
+    "19": {
+      "uci_code": 105,
+      "meaning": "Russian"
+    },
+    "20": {
+      "uci_code": 108,
+      "meaning": "Cuban"
+    },
+    "21": {
+      "uci_code": 109,
+      "meaning": "Colombian"
+    }
+  },
+  "Mother's qualification": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "Secondary Education - 12th Year of Schooling or Eq."
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "Higher Education - Bachelor's Degree"
+    },
+    "3": {
+      "uci_code": 3,
+      "meaning": "Higher Education - Degree"
+    },
+    "4": {
+      "uci_code": 4,
+      "meaning": "Higher Education - Master's"
+    },
+    "5": {
+      "uci_code": 5,
+      "meaning": "Higher Education - Doctorate"
+    },
+    "6": {
+      "uci_code": 6,
+      "meaning": "Frequency of Higher Education"
+    },
+    "7": {
+      "uci_code": 9,
+      "meaning": "12th Year of Schooling - Not Completed"
+    },
+    "8": {
+      "uci_code": 10,
+      "meaning": "11th Year of Schooling - Not Completed"
+    },
+    "9": {
+      "uci_code": 11,
+      "meaning": "7th Year (Old)"
+    },
+    "10": {
+      "uci_code": 12,
+      "meaning": "Other - 11th Year of Schooling"
+    },
+    "11": {
+      "uci_code": 14,
+      "meaning": "10th Year of Schooling"
+    },
+    "12": {
+      "uci_code": 18,
+      "meaning": "General commerce course"
+    },
+    "13": {
+      "uci_code": 19,
+      "meaning": "Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv."
+    },
+    "14": {
+      "uci_code": 22,
+      "meaning": "Technical-professional course"
+    },
+    "15": {
+      "uci_code": 26,
+      "meaning": "7th year of schooling"
+    },
+    "16": {
+      "uci_code": 27,
+      "meaning": "2nd cycle of the general high school course"
+    },
+    "17": {
+      "uci_code": 29,
+      "meaning": "9th Year of Schooling - Not Completed"
+    },
+    "18": {
+      "uci_code": 30,
+      "meaning": "8th year of schooling"
+    },
+    "19": {
+      "uci_code": 34,
+      "meaning": "Unknown"
+    },
+    "20": {
+      "uci_code": 35,
+      "meaning": "Can't read or write"
+    },
+    "21": {
+      "uci_code": 36,
+      "meaning": "Can read without having a 4th year of schooling"
+    },
+    "22": {
+      "uci_code": 37,
+      "meaning": "Basic education 1st cycle (4th/5th year) or equiv."
+    },
+    "23": {
+      "uci_code": 38,
+      "meaning": "Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv."
+    },
+    "24": {
+      "uci_code": 39,
+      "meaning": "Technological specialization course"
+    },
+    "25": {
+      "uci_code": 40,
+      "meaning": "Higher education - degree (1st cycle)"
+    },
+    "26": {
+      "uci_code": 41,
+      "meaning": "Specialized higher studies course"
+    },
+    "27": {
+      "uci_code": 42,
+      "meaning": "Professional higher technical course"
+    },
+    "28": {
+      "uci_code": 43,
+      "meaning": "Higher Education - Master (2nd cycle)"
+    },
+    "29": {
+      "uci_code": 44,
+      "meaning": "Higher Education - Doctorate (3rd cycle)"
+    }
+  },
+  "Father's qualification": {
+    "1": {
+      "uci_code": 1,
+      "meaning": "Secondary Education - 12th Year of Schooling or Eq."
+    },
+    "2": {
+      "uci_code": 2,
+      "meaning": "Higher Education - Bachelor's Degree"
+    },
+    "3": {
+      "uci_code": 3,
+      "meaning": "Higher Education - Degree"
+    },
+    "4": {
+      "uci_code": 4,
+      "meaning": "Higher Education - Master's"
+    },
+    "5": {
+      "uci_code": 5,
+      "meaning": "Higher Education - Doctorate"
+    },
+    "6": {
+      "uci_code": 6,
+      "meaning": "Frequency of Higher Education"
+    },
+    "7": {
+      "uci_code": 9,
+      "meaning": "12th Year of Schooling - Not Completed"
+    },
+    "8": {
+      "uci_code": 10,
+      "meaning": "11th Year of Schooling - Not Completed"
+    },
+    "9": {
+      "uci_code": 11,
+      "meaning": "7th Year (Old)"
+    },
+    "10": {
+      "uci_code": 12,
+      "meaning": "Other - 11th Year of Schooling"
+    },
+    "11": {
+      "uci_code": 13,
+      "meaning": "2nd year complementary high school course"
+    },
+    "12": {
+      "uci_code": 14,
+      "meaning": "10th Year of Schooling"
+    },
+    "13": {
+      "uci_code": 18,
+      "meaning": "General commerce course"
+    },
+    "14": {
+      "uci_code": 19,
+      "meaning": "Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv."
+    },
+    "15": {
+      "uci_code": 20,
+      "meaning": "Complementary High School Course"
+    },
+    "16": {
+      "uci_code": 22,
+      "meaning": "Technical-professional course"
+    },
+    "17": {
+      "uci_code": 25,
+      "meaning": "Complementary High School Course - not concluded"
+    },
+    "18": {
+      "uci_code": 26,
+      "meaning": "7th year of schooling"
+    },
+    "19": {
+      "uci_code": 27,
+      "meaning": "2nd cycle of the general high school course"
+    },
+    "20": {
+      "uci_code": 29,
+      "meaning": "9th Year of Schooling - Not Completed"
+    },
+    "21": {
+      "uci_code": 30,
+      "meaning": "8th year of schooling"
+    },
+    "22": {
+      "uci_code": 31,
+      "meaning": "General Course of Administration and Commerce"
+    },
+    "23": {
+      "uci_code": 33,
+      "meaning": "Supplementary Accounting and Administration"
+    },
+    "24": {
+      "uci_code": 34,
+      "meaning": "Unknown"
+    },
+    "25": {
+      "uci_code": 35,
+      "meaning": "Can't read or write"
+    },
+    "26": {
+      "uci_code": 36,
+      "meaning": "Can read without having a 4th year of schooling"
+    },
+    "27": {
+      "uci_code": 37,
+      "meaning": "Basic education 1st cycle (4th/5th year) or equiv."
+    },
+    "28": {
+      "uci_code": 38,
+      "meaning": "Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv."
+    },
+    "29": {
+      "uci_code": 39,
+      "meaning": "Technological specialization course"
+    },
+    "30": {
+      "uci_code": 40,
+      "meaning": "Higher education - degree (1st cycle)"
+    },
+    "31": {
+      "uci_code": 41,
+      "meaning": "Specialized higher studies course"
+    },
+    "32": {
+      "uci_code": 42,
+      "meaning": "Professional higher technical course"
+    },
+    "33": {
+      "uci_code": 43,
+      "meaning": "Higher Education - Master (2nd cycle)"
+    },
+    "34": {
+      "uci_code": 44,
+      "meaning": "Higher Education - Doctorate (3rd cycle)"
+    }
+  },
+  "Mother's occupation": {
+    "1": {
+      "uci_code": 0,
+      "meaning": "Student"
+    },
+    "2": {
+      "uci_code": 1,
+      "meaning": "Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers"
+    },
+    "3": {
+      "uci_code": 2,
+      "meaning": "Specialists in Intellectual and Scientific Activities"
+    },
+    "4": {
+      "uci_code": 3,
+      "meaning": "Intermediate Level Technicians and Professions"
+    },
+    "5": {
+      "uci_code": 4,
+      "meaning": "Administrative staff"
+    },
+    "6": {
+      "uci_code": 5,
+      "meaning": "Personal Services, Security and Safety Workers and Sellers"
+    },
+    "7": {
+      "uci_code": 6,
+      "meaning": "Farmers and Skilled Workers in Agriculture, Fisheries and Forestry"
+    },
+    "8": {
+      "uci_code": 7,
+      "meaning": "Skilled Workers in Industry, Construction and Craftsmen"
+    },
+    "9": {
+      "uci_code": 8,
+      "meaning": "Installation and Machine Operators and Assembly Workers"
+    },
+    "10": {
+      "uci_code": 9,
+      "meaning": "Unskilled Workers"
+    },
+    "11": {
+      "uci_code": 10,
+      "meaning": "Armed Forces Professions"
+    },
+    "12": {
+      "uci_code": 90,
+      "meaning": "Other Situation"
+    },
+    "13": {
+      "uci_code": 99,
+      "meaning": "(blank)"
+    },
+    "14": {
+      "uci_code": 122,
+      "meaning": "Health professionals"
+    },
+    "15": {
+      "uci_code": 123,
+      "meaning": "teachers"
+    },
+    "16": {
+      "uci_code": 125,
+      "meaning": "Specialists in information and communication technologies (ICT)"
+    },
+    "17": {
+      "uci_code": 131,
+      "meaning": "Intermediate level science and engineering technicians and professions"
+    },
+    "18": {
+      "uci_code": 132,
+      "meaning": "Technicians and professionals, of intermediate level of health"
+    },
+    "19": {
+      "uci_code": 134,
+      "meaning": "Intermediate level technicians from legal, social, sports, cultural and similar services"
+    },
+    "20": {
+      "uci_code": 141,
+      "meaning": "Office workers, secretaries in general and data processing operators"
+    },
+    "21": {
+      "uci_code": 143,
+      "meaning": "Data, accounting, statistical, financial services and registry-related operators"
+    },
+    "22": {
+      "uci_code": 144,
+      "meaning": "Other administrative support staff"
+    },
+    "23": {
+      "uci_code": 151,
+      "meaning": "personal service workers"
+    },
+    "24": {
+      "uci_code": 152,
+      "meaning": "sellers"
+    },
+    "25": {
+      "uci_code": 153,
+      "meaning": "Personal care workers and the like"
+    },
+    "26": {
+      "uci_code": 171,
+      "meaning": "Skilled construction workers and the like, except electricians"
+    },
+    "27": {
+      "uci_code": 173,
+      "meaning": "Skilled workers in printing, precision instrument manufacturing, jewelers, artisans and the like"
+    },
+    "28": {
+      "uci_code": 175,
+      "meaning": "Workers in food processing, woodworking, clothing and other industries and crafts"
+    },
+    "29": {
+      "uci_code": 191,
+      "meaning": "cleaning workers"
+    },
+    "30": {
+      "uci_code": 192,
+      "meaning": "Unskilled workers in agriculture, animal production, fisheries and forestry"
+    },
+    "31": {
+      "uci_code": 193,
+      "meaning": "Unskilled workers in extractive industry, construction, manufacturing and transport"
+    },
+    "32": {
+      "uci_code": 194,
+      "meaning": "Meal preparation assistants"
+    }
+  },
+  "Father's occupation": {
+    "1": {
+      "uci_code": 0,
+      "meaning": "Student"
+    },
+    "2": {
+      "uci_code": 1,
+      "meaning": "Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers"
+    },
+    "3": {
+      "uci_code": 2,
+      "meaning": "Specialists in Intellectual and Scientific Activities"
+    },
+    "4": {
+      "uci_code": 3,
+      "meaning": "Intermediate Level Technicians and Professions"
+    },
+    "5": {
+      "uci_code": 4,
+      "meaning": "Administrative staff"
+    },
+    "6": {
+      "uci_code": 5,
+      "meaning": "Personal Services, Security and Safety Workers and Sellers"
+    },
+    "7": {
+      "uci_code": 6,
+      "meaning": "Farmers and Skilled Workers in Agriculture, Fisheries and Forestry"
+    },
+    "8": {
+      "uci_code": 7,
+      "meaning": "Skilled Workers in Industry, Construction and Craftsmen"
+    },
+    "9": {
+      "uci_code": 8,
+      "meaning": "Installation and Machine Operators and Assembly Workers"
+    },
+    "10": {
+      "uci_code": 9,
+      "meaning": "Unskilled Workers"
+    },
+    "11": {
+      "uci_code": 10,
+      "meaning": "Armed Forces Professions"
+    },
+    "12": {
+      "uci_code": 90,
+      "meaning": "Other Situation"
+    },
+    "13": {
+      "uci_code": 99,
+      "meaning": "(blank)"
+    },
+    "14": {
+      "uci_code": 101,
+      "meaning": "Armed Forces Officers"
+    },
+    "15": {
+      "uci_code": 102,
+      "meaning": "Armed Forces Sergeants"
+    },
+    "16": {
+      "uci_code": 103,
+      "meaning": "Other Armed Forces personnel"
+    },
+    "17": {
+      "uci_code": 112,
+      "meaning": "Directors of administrative and commercial services"
+    },
+    "18": {
+      "uci_code": 114,
+      "meaning": "Hotel, catering, trade and other services directors"
+    },
+    "19": {
+      "uci_code": 121,
+      "meaning": "Specialists in the physical sciences, mathematics, engineering and related techniques"
+    },
+    "20": {
+      "uci_code": 122,
+      "meaning": "Health professionals"
+    },
+    "21": {
+      "uci_code": 123,
+      "meaning": "teachers"
+    },
+    "22": {
+      "uci_code": 124,
+      "meaning": "Specialists in finance, accounting, administrative organization, public and commercial relations"
+    },
+    "23": {
+      "uci_code": 131,
+      "meaning": "Intermediate level science and engineering technicians and professions"
+    },
+    "24": {
+      "uci_code": 132,
+      "meaning": "Technicians and professionals, of intermediate level of health"
+    },
+    "25": {
+      "uci_code": 134,
+      "meaning": "Intermediate level technicians from legal, social, sports, cultural and similar services"
+    },
+    "26": {
+      "uci_code": 135,
+      "meaning": "Information and communication technology technicians"
+    },
+    "27": {
+      "uci_code": 141,
+      "meaning": "Office workers, secretaries in general and data processing operators"
+    },
+    "28": {
+      "uci_code": 143,
+      "meaning": "Data, accounting, statistical, financial services and registry-related operators"
+    },
+    "29": {
+      "uci_code": 144,
+      "meaning": "Other administrative support staff"
+    },
+    "30": {
+      "uci_code": 151,
+      "meaning": "personal service workers"
+    },
+    "31": {
+      "uci_code": 152,
+      "meaning": "sellers"
+    },
+    "32": {
+      "uci_code": 153,
+      "meaning": "Personal care workers and the like"
+    },
+    "33": {
+      "uci_code": 154,
+      "meaning": "Protection and security services personnel"
+    },
+    "34": {
+      "uci_code": 161,
+      "meaning": "Market-oriented farmers and skilled agricultural and animal production workers"
+    },
+    "35": {
+      "uci_code": 163,
+      "meaning": "Farmers, livestock keepers, fishermen, hunters and gatherers, subsistence"
+    },
+    "36": {
+      "uci_code": 171,
+      "meaning": "Skilled construction workers and the like, except electricians"
+    },
+    "37": {
+      "uci_code": 172,
+      "meaning": "Skilled workers in metallurgy, metalworking and similar"
+    },
+    "38": {
+      "uci_code": 174,
+      "meaning": "Skilled workers in electricity and electronics"
+    },
+    "39": {
+      "uci_code": 175,
+      "meaning": "Workers in food processing, woodworking, clothing and other industries and crafts"
+    },
+    "40": {
+      "uci_code": 181,
+      "meaning": "Fixed plant and machine operators"
+    },
+    "41": {
+      "uci_code": 182,
+      "meaning": "assembly workers"
+    },
+    "42": {
+      "uci_code": 183,
+      "meaning": "Vehicle drivers and mobile equipment operators"
+    },
+    "43": {
+      "uci_code": 192,
+      "meaning": "Unskilled workers in agriculture, animal production, fisheries and forestry"
+    },
+    "44": {
+      "uci_code": 193,
+      "meaning": "Unskilled workers in extractive industry, construction, manufacturing and transport"
+    },
+    "45": {
+      "uci_code": 194,
+      "meaning": "Meal preparation assistants"
+    },
+    "46": {
+      "uci_code": 195,
+      "meaning": "Street vendors (except food) and street service providers"
+    }
+  }
+}

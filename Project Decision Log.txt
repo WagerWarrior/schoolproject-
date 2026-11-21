@@ -1,0 +1,91 @@
+STUDENT DROPOUT PROJECT — DECISION LOG
+Updated November 21, 2026
+
+PURPOSE
+Test whether first-semester results improve classification of recorded dropout outcomes compared with enrollment information alone. Missing dropout dates mean this is not validated forecasting of future dropout.
+
+STARTING COLUMN PLAN
+Model A: 11 enrollment fields, listed below.
+- Course
+- Age at enrollment
+- Application mode
+- Application order
+- Daytime/evening attendance
+- Previous qualification
+- Mother's qualification
+- Father's qualification
+- Mother's occupation
+- Father's occupation
+- Displaced
+
+Model B: all Model A fields plus six first-semester fields:
+- Curricular units 1st sem (credited)
+- Curricular units 1st sem (enrolled)
+- Curricular units 1st sem (evaluations)
+- Curricular units 1st sem (approved)
+- Curricular units 1st sem (grade)
+- Curricular units 1st sem (without evaluations)
+
+These are 11 and 17 source columns before category encoding. Use the same students, splits and preprocessing policy for both versions. The feature list is a starting plan, not a claim that each field will prove useful. Parents' education and occupations can act as socioeconomic proxies; review subgroup errors and interpretation.
+
+TARGET
+Target is the answer, never an input: Dropout = 1, Enrolled or Graduate = 0. Enrolled does not mean guaranteed graduation. Keep the original outcome column and derive a separate binary label.
+
+EXCLUSIONS FROM PRIMARY MODELS
+- All six second-semester fields: later information outside our chosen input window.
+- Marital status, nationality, special needs, gender and international status: retain for aggregate fairness review; exclude from primary inputs pending instructor review.
+- Debtor, tuition payment status and scholarship status: exclude until prediction-time availability is verified. Any entry-only model input must be available at enrollment.
+- Unemployment, inflation and GDP: exclude until reference period and availability are documented; GDP also needs unit clarification.
+Keep all fields in the original file. Excluding a model input does not mean deleting it from the source data.
+
+INITIAL AUDIT COMPLETED
+4,424 rows; 35 columns; 0 empty cells; 0 exact duplicate rows.
+Target counts: Dropout 1,421; Graduate 2,209; Enrolled 794.
+No empty cells does not rule out coded unknown values. Zero grades are not automatically missing or failed exams. Enrolled minus passed does not necessarily mean failed.
+
+CLEANING AND MODELLING STILL TO DO
+1. Check unknown category codes and unusual values against the data dictionary.
+2. Record each cleaning decision and its reason. Preserve the raw file.
+3. Create one stratified 80/20 split with seed 42 and keep test data untouched.
+4. Explore training data; document patterns and revise feature decisions if justified.
+5. Encode categorical labels appropriately. Fit imputation and scaling using training folds only.
+6. Compare majority baseline, logistic regression, decision tree and random forest using five-fold validation in training data.
+7. Evaluate the selected models on the locked test set once. Report errors and limitations.
+
+PROGRESS
+Completed: initial file checks and starting feature selection.
+Not yet completed: cleaning transformations, saved train/test split, trained models or results.
+
+REFERENCE
+The shared proposal is the project plan. This log records implementation decisions as we work. It does not overwrite or submit the proposal.
+
+NOVEMBER 21 — CLEANING STEP 1 COMPLETED
+Decoded the four parental education/occupation columns using the verified Kaggle code dictionary. Mother's qualification 19 -> Unknown (130 rows); father's qualification 24 -> Unknown (112 rows). Occupation code 13 is documented as blank: labelled Not specified (source blank), affecting 17 maternal and 19 paternal entries. These are per-column counts, not distinct student totals.
+Saved data/selected_columns_step1.csv with 4,424 rows and 18 columns: 17 Model B inputs plus original Target. Model A uses its 11-column subset. No rows removed, no numeric values changed, raw file unchanged. Other categorical fields still need appropriate encoding. This is a partially prepared working copy, not a final model-ready dataset.
+Reproduce using 01_clean_unknown_codes.py. Details and source hash are in step1_cleaning_audit.json.
+Next: validate age, class counts and grades; document unusual values before deciding on corrections. Split data before fitted preprocessing or detailed exploratory comparisons.
+
+
+2026-11-21: Cleaning steps 2 and 3
+Checked age and six first-semester numeric columns: no missing, negative,
+fractional count or out-of-range grade values. Cross-column checks found no
+approved counts exceeding enrolled counts. Retained all zeros and all rows.
+Checked remaining six enrollment fields. Course (17 categories), application
+mode (18) and previous qualification (17) all match verified code mappings;
+decoded these three columns to readable labels. Binary attendance and displaced
+fields contain only 0/1. Application order retained; its single 0 remains a
+documented review item due to differing source descriptions. No guessed fix.
+Current working data: data/selected_columns_step3.csv, 4424 rows, 17 inputs
+plus original Target. No fitted encoding, train/test split or modelling yet.
+
+2026-11-21: Step 4 completed. Stratified binary 80/20 split, seed 42. Training: 3539 (1137 dropout, 2402 other). Test: 885 (284 dropout, 601 other). Saved shared A/B membership and five training-only validation folds. Verified no row overlap, full coverage, input/output alignment and unchanged source. No model trained.
+
+Step 5: Training-only descriptive EDA completed. Saved numerical/category summaries, outcome comparisons and overview plot in analysis/. No test data loaded. No model fitted or feature-selection decision made. Kept zeros and unknown categories.
+
+Step 6: Added reusable unfitted one-hot encoder factory in preprocessing.py and a training-only preview. Seven nominal fields encoded; numeric/binary fields unchanged. Full-training preview has 187 columns for A and 193 for B. Checked binary outputs, row count and unseen-category handling. No test data loaded. Preview fit discarded; cross-validation must fit fresh preprocessing within each fold. No classifier trained or scaling done.
+
+Step 7: Added StandardScaler for numerical inputs in logistic-regression preprocessing. Seven nominal columns are one-hot encoded; two binary columns pass through unchanged. Training-only preview saved in analysis/scaling_examples.csv and scaling_settings_preview.csv. Verified zero means, unit standard deviations, reversible scaling and unchanged binary values for A/B. No model trained. Fit preprocessing afresh in each CV fold; test rows remain reserved.
+
+Step 8: Trained dummy baseline and logistic A/B with shared five-fold CV, preprocessing fitted separately within each fold. Default logistic settings, max_iter=1000, cutoff=0.5. No tuning, class weighting or test evaluation. Mean F1: baseline 0, A 0.4585, B 0.7017. Saved per-fold metrics, validation predictions, confusion counts and provisional full-training pipelines. Reported average precision and trapezoidal PR-AUC separately: these are different summaries. Constant-score baseline trapezoidal PR-AUC includes an interpolation artifact; average precision is its prevalence-level PR summary.
+
+Step 10: Trained decision tree A/B with max_depth=3, random_state=42, cutoff 0.5 and identical saved CV folds. Encoding fitted inside each fold; no scaling. Saved fold metrics, confusion counts, provisional models and readable full-training rules. Tree B F1 0.6416 versus logistic B 0.7017. Raw source and mappings moved into self-contained local project paths; raw data and individual predictions excluded from Git.

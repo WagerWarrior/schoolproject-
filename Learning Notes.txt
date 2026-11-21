@@ -1,0 +1,93 @@
+STUDENT DROPOUT PROJECT — LEARNING NOTES
+Updated: November 21, 2026
+
+WHAT WE ARE BUILDING
+We compare enrollment information alone (A, 11 original inputs) against
+enrollment plus six first-semester inputs (B, 17 original inputs).
+The answer is 1 for recorded Dropout and 0 for Enrolled or Graduate.
+Still enrolled does not guarantee eventual graduation. Without dropout dates,
+this is retrospective classification, not a validated forecast of future dropout.
+
+WHAT SCIKIT-LEARN DOES
+Scikit-learn is a Python library. It provides the learning algorithms, not
+pretrained weights for our project. The course instructions explicitly list
+scikit-learn as an example Python library under Technical requirements, page 4:
+https://eclass.yorku.ca/mod/resource/view.php?id=4550502
+
+HOW LOGISTIC REGRESSION LEARNS
+It combines input values with learned weights and an intercept, then converts
+the result into a score between 0 and 1. During fit(), an optimizer adjusts the
+weights to reduce the training objective (prediction loss plus a penalty).
+Our code allows up to 1000 iterations; it may stop sooner after convergence.
+We do not choose the learned weights ourselves. They come from fitting our data.
+Predicting does not update weights. New learning requires deliberate retraining
+using examples with known outcomes. Calibration needs checking before treating
+scores as reliable individual probabilities.
+
+PREPARATION
+We kept documented unknown categories and valid zeros. We encoded seven nominal
+fields with one-hot encoding: separate 0/1 columns for their categories.
+We standardized numerical inputs for logistic regression:
+scaled value = (original value - training mean) / training standard deviation.
+The two existing binary fields remain unchanged. Encoding and scaling are fitted
+separately within each cross-validation training fold.
+
+EVALUATION DESIGN
+3539 training students; 885 test students held aside. Stratified split, seed 42.
+Five-fold cross-validation within training: learn on four parts, validate on one.
+Every training student has one validation prediction per model, produced without
+training on that row. A and B use the same folds. No test scores computed yet.
+Initial cutoff: score >= 0.5 means predict dropout. No tuning yet.
+
+INITIAL RESULTS: VALIDATION ONLY
+Mean F1 across folds: baseline 0.0000, logistic A 0.4585, logistic B 0.7017.
+Mean accuracy: baseline 67.87%, A 72.34%, B 82.90%.
+The baseline always predicts other outcome, so it catches no dropouts.
+Average precision and trapezoidal PR-AUC are different summaries and are saved
+under separate names. Fold-to-fold standard deviations are in the results file;
+they are not confidence intervals or final test results.
+
+HOW TO READ THE CONFUSION MATRIX
+Rows show actual outcomes; columns show predictions.
+True negative: correctly predicted other outcome.
+False positive: predicted dropout, but actual outcome was enrolled or graduated.
+False negative: predicted other outcome, but actual outcome was dropout.
+True positive: correctly predicted dropout.
+
+Across all validation rounds:
+                      True negative  False positive  False negative  True positive
+Baseline                       2402               0            1137              0
+Logistic A                     2145             257             722            415
+Logistic B                     2221             181             424            713
+
+B caught 298 more dropouts than A and made 76 fewer false alarms at cutoff 0.5.
+These are counts from combined validation predictions. Reported metric means
+are calculated across five folds, so they can differ slightly from metrics
+calculated using the combined counts.
+The difference supports testing semester-one inputs; it does not prove causation.
+
+NEXT STEPS
+1. Review the confusion matrices (completed; see results/first_models_confusion_matrices.png).
+2. Train a shallow decision tree and random forest with identical A/B folds.
+3. Compare validation metrics and errors. Try a small set of model settings.
+4. Consider cutoff changes using validation only. Lower cutoffs can catch more
+   dropouts but may raise more false alarms. Do not pick cutoffs using test data.
+5. Lock the final choice, fit on all training rows, then evaluate on held-out test.
+6. Build the app and finish the report, README and contribution statements.
+
+DECISION TREE TRAINING — STEP 10
+A tree learns which feature and cutoff to ask about, choosing splits that make
+the outcome groups more similar. We use the default Gini impurity criterion.
+max_depth=3 limits a prediction path to three splits. This is a starting setting,
+not an optimized choice or a guarantee against overfitting. No scaling needed.
+We trained A and B using the same five folds and cutoff 0.5.
+Tree A mean validation F1: 0.5032; accuracy 70.53%.
+Tree B mean validation F1: 0.6416; accuracy 80.05%.
+Tree B caught 637 dropouts, missed 500, and made 206 false alarms.
+Logistic B still has the higher initial F1 (0.7017). Tree A improves recall and
+F1 over logistic A, but has lower precision and accuracy. No overall winner
+has been selected, and the held-out test group has not been evaluated.
+The provisional B tree fitted on all training rows first asks whether courses
+passed is <=3.5: because this is a count, that means 3 or fewer versus 4 or more.
+This rule is learned, not hand-written, and fold-specific trees may differ.
+Next: random forest, then small validation-based tuning and error comparisons.

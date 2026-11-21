@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+data/
+models/
+analysis/
+results/*validation_predictions.csv
+step*_audit.json

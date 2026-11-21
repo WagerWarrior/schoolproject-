@@ -1,0 +1,76 @@
+{
+  "status": "Starting feature plan agreed 2026-11-21; review during EDA before modelling",
+  "source_csv": "data/raw/dataset.csv",
+  "model_a_columns": [
+    "Course",
+    "Age at enrollment",
+    "Application mode",
+    "Application order",
+    "Daytime/evening attendance",
+    "Previous qualification",
+    "Mother's qualification",
+    "Father's qualification",
+    "Mother's occupation",
+    "Father's occupation",
+    "Displaced"
+  ],
+  "model_b_columns": [
+    "Course",
+    "Age at enrollment",
+    "Application mode",
+    "Application order",
+    "Daytime/evening attendance",
+    "Previous qualification",
+    "Mother's qualification",
+    "Father's qualification",
+    "Mother's occupation",
+    "Father's occupation",
+    "Displaced",
+    "Curricular units 1st sem (credited)",
+    "Curricular units 1st sem (enrolled)",
+    "Curricular units 1st sem (evaluations)",
+    "Curricular units 1st sem (approved)",
+    "Curricular units 1st sem (grade)",
+    "Curricular units 1st sem (without evaluations)"
+  ],
+  "excluded_from_primary_models": {
+    "future_semester": [
+      "Curricular units 2nd sem (credited)",
+      "Curricular units 2nd sem (enrolled)",
+      "Curricular units 2nd sem (evaluations)",
+      "Curricular units 2nd sem (approved)",
+      "Curricular units 2nd sem (grade)",
+      "Curricular units 2nd sem (without evaluations)"
+    ],
+    "fairness_audit_only_pending_review": [
+      "Marital status",
+      "Nacionality",
+      "Educational special needs",
+      "Gender",
+      "International"
+    ],
+    "financial_timing_unverified": [
+      "Debtor",
+      "Tuition fees up to date",
+      "Scholarship holder"
+    ],
+    "economic_reference_period_unverified": [
+      "Unemployment rate",
+      "Inflation rate",
+      "GDP"
+    ]
+  },
+  "target_column": "Target",
+  "target_mapping": {
+    "Dropout": 1,
+    "Enrolled": 0,
+    "Graduate": 0
+  },
+  "split_plan": {
+    "test_fraction": 0.2,
+    "stratified": true,
+    "random_state": 42,
+    "training_cv_folds": 5
+  },
+  "preprocessing_status": "Not fitted. Fit encoding, imputation and scaling within training folds only."
+}

@@ -1,0 +1,22 @@
+|--- numeric_and_binary__Age at enrollment <= 22.50
+|   |--- categories__Course_Nursing <= 0.50
+|   |   |--- categories__Mother's qualification_Unknown <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- categories__Mother's qualification_Unknown >  0.50
+|   |   |   |--- class: 1
+|   |--- categories__Course_Nursing >  0.50
+|   |   |--- categories__Mother's occupation_Other Situation <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- categories__Mother's occupation_Other Situation >  0.50
+|   |   |   |--- class: 1
+|--- numeric_and_binary__Age at enrollment >  22.50
+|   |--- categories__Father's qualification_Unknown <= 0.50
+|   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |--- class: 0
+|   |--- categories__Father's qualification_Unknown >  0.50
+|   |   |--- categories__Application mode_Change of course <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- categories__Application mode_Change of course >  0.50
+|   |   |   |--- class: 1
