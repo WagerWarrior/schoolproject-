@@ -73,3 +73,10 @@ score baseline has a misleadingly high trapezoidal area from interpolation;
 use its average precision as the prevalence-level precision-recall reference.
 Next: review errors, compare tree/random forest, select using validation, then
 evaluate the final locked model on the test group.
+
+RANDOM FOREST
+Run .venv/bin/python 11_train_random_forest.py. Simple initial setup: 100 trees,
+seed 42, default depth, cutoff 0.5. Same A/B folds; no scaling or tuning.
+Results in results/random_forest_*.csv; fitted models remain local in models/.
+Current initial comparisons include all three methods. Tuning and final test
+evaluation remain to do. See README.md and Learning Notes.txt for results.

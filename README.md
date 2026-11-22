@@ -5,7 +5,7 @@ plus first-semester results (B). Dropout is 1; Enrolled and Graduate are 0.
 
 The project currently includes data checks, training-only exploration, one-hot
 encoding, scaling, a dummy baseline, logistic regression and shallow decision
-trees. Random forest, tuning, final test evaluation and the app remain to do.
+trees and random forests. Tuning, final test evaluation and the app remain to do.
 
 ## Setup
 
@@ -41,6 +41,7 @@ python 07_preview_scaling.py
 python 08_train_first_models.py
 python 09_review_errors.py
 python 10_train_decision_tree.py
+python 11_train_random_forest.py
 ```
 
 The preview scripts explain preprocessing; their fitted transformations must
@@ -54,6 +55,8 @@ within each training fold.
 - Initial prediction cutoff 0.5; no tuning or class weighting yet.
 - Logistic regression uses one-hot encoding and numerical standardization.
 - Trees use one-hot encoding without scaling, maximum depth 3, seed 42.
+- Random forests use one-hot encoding without scaling, 100 trees, seed 42,
+  default unrestricted depth, bootstrap sampling and random feature subsets.
 - Results are validation results, not final test results. Test data remains reserved.
 - Average precision and trapezoidal PR-AUC are recorded separately. Trapezoidal
   PR-AUC can be misleading for constant-score baselines because of interpolation.
@@ -65,6 +68,8 @@ within each training fold.
 | Logistic B | 0.702 | 82.9% |
 | Tree A | 0.503 | 70.5% |
 | Tree B | 0.642 | 80.1% |
+| Forest A | 0.466 | 72.0% |
+| Forest B | 0.667 | 81.2% |
 
 Saved full-training models and tree rules are provisional, not selected final models.
 See `Learning Notes.txt` for explanations and `Project Decision Log.txt` for decisions.

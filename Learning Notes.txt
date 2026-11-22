@@ -91,3 +91,34 @@ The provisional B tree fitted on all training rows first asks whether courses
 passed is <=3.5: because this is a count, that means 3 or fewer versus 4 or more.
 This rule is learned, not hand-written, and fold-specific trees may differ.
 Next: random forest, then small validation-based tuning and error comparisons.
+
+RANDOM FOREST TRAINING — STEP 11
+A random forest combines many decision trees. Our initial forest has 100 trees.
+Each tree learns from a random sample of training rows drawn with replacement
+(bootstrap sampling): some students may appear more than once in that sample.
+Each split considers a random subset of input features. This creates variation
+between trees. Scikit-learn averages the trees' class probability estimates;
+our code predicts dropout when the average score is at least 0.5.
+This can reduce dependence on one tree, but does not guarantee better results.
+
+Simple setup:
+RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
+n_estimators is the number of trees; random_state makes the run reproducible;
+n_jobs=-1 uses available CPU cores. We left other settings at their defaults,
+including unrestricted tree depth. No class weighting or tuning yet.
+As with the single tree, we one-hot encode categories but do not scale numbers.
+Preprocessing is fitted inside each training fold. We reuse the same five folds
+for A and B, and never load test inputs or answers in this training script.
+
+INITIAL VALIDATION RESULTS
+Forest A: mean accuracy 72.03%, precision 60.16%, recall 38.08%, F1 0.4661.
+Forest B: mean accuracy 81.24%, precision 77.74%, recall 58.40%, F1 0.6667.
+Forest B caught 664 dropouts, missed 473, and made 191 false alarms across folds.
+Semester-one inputs helped the forest. Forest B beats our shallow Tree B on
+F1, but Logistic B still leads these initial B comparisons (F1 0.7017).
+More trees does not automatically mean a better classifier.
+
+We saved fold metrics, validation predictions, confusion counts and provisional
+full-training models. These are not final test results or a final selection.
+Next: compare all methods, then try a small validation-based parameter search
+and examine cutoff trade-offs before locking choices for final test evaluation.
