@@ -346,3 +346,39 @@ permutation analysis identified first-semester courses passed as the strongest
 input in this diagnostic. Its negative coefficient associates more passed
 courses with lower predicted dropout scores, holding other inputs fixed.
 These results describe model behavior, not causal effects."
+
+STREAMLIT APPLICATION — STEP 19
+Streamlit turns a Python script into an interactive page in a browser.
+We wrote app.py using ordinary if/else statements and Streamlit widgets.
+The app does not retrain the model or change the final cutoff.
+
+1. Results page: reads saved final test metrics and shows the confusion matrix.
+   A model selector compares initial A/B validation scores, clearly separated
+   from final B test results. No test evaluation is rerun to draw the page.
+2. What mattered page: reads the saved validation permutation importance table.
+   A slider chooses how many columns to display. Interpretation limits appear
+   beside the chart; no causal or individual-risk claims are made.
+3. Made-up profile page: collects the 17 original inputs in a form, puts them
+   into a one-row pandas DataFrame, and calls the saved pipeline's predict_proba.
+   The pipeline applies the SAME learned encoding, scaling and weights as before.
+   Score >= 0.3 means the example is classified as dropout. We do not use the
+   classifier's default predict() rule, because it would use a different cutoff.
+
+Forms submit all input values together when Calculate example score is clicked.
+No profile input is written to disk or a database. Use fictional examples only.
+The result is called a model score, not a confirmed probability. The app warns
+that it is educational and unsuitable for real student decisions. It checks that
+passed/credited/no-assessment counts do not exceed enrolled courses. This is
+basic validation, not a guarantee that every allowed profile is realistic.
+
+Run: streamlit run app.py, then visit http://127.0.0.1:8501.
+The local server is bound to 127.0.0.1 and usage-stat collection is disabled.
+On another computer, prepare the data/split using scripts 01-04, then run
+19_build_app_model.py. It rebuilds the locked model from training data only,
+without rerunning the test. It refuses to overwrite an existing model artifact.
+
+The app is local, not deployed online. GitHub holds the app code, requirements,
+setup instructions and aggregate outputs. It excludes raw data and fitted models.
+The first version implements model comparisons, global feature explanations and
+fictional-profile predictions. Cohort filters and per-profile contributions are
+not implemented yet. Fairness analysis and the final report are still outstanding.

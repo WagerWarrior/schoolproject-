@@ -2,6 +2,42 @@
 
 Project repository: https://github.com/WagerWarrior/schoolproject-
 
+## Run the simple Streamlit app
+
+The app has three pages: Results, What mattered, and Try a made-up profile.
+It displays saved aggregate results and uses the locked model for example
+predictions. Inputs are not written to disk or a database. It runs locally;
+the GitHub repository is source code, not a hosted app.
+
+```bash
+source .venv/bin/activate
+streamlit run app.py
+```
+
+Open http://127.0.0.1:8501. Stop the server with Ctrl+C in its terminal.
+Use the sidebar to switch pages. Model comparison uses initial validation
+scores; the final test results are presented separately. The profile form uses
+all 17 original inputs, the saved encoding/scaling pipeline and cutoff 0.3.
+Scores are uncalibrated model scores, not established individual probabilities.
+Impossible course-count combinations are blocked. Use fictional profiles only.
+
+For a fresh clone, install requirements and download the source data as below.
+Run scripts 01, 02, 03 and 04 to prepare the saved training split, then run
+`python 19_build_app_model.py` to rebuild the locked model using training rows
+only. This avoids rerunning the final test evaluation. Aggregate result files
+are already in Git. The Results and What mattered pages work without the local
+model; the profile page explains when the model is missing.
+
+Run `python check_app.py` to check navigation, filters, a prediction against the
+saved pipeline, the 0.3 cutoff and invalid-input handling. Requires the local model.
+Streamlit form and test APIs follow the official documentation:
+[forms](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form),
+[AppTest](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest).
+
+The app is a simple first version. Cohort filtering and per-profile feature
+contributions from the proposal are not implemented yet. Fairness analysis and
+the final report also remain to do; this is not the complete final submission.
+
 ## Current status: final B model evaluated
 
 Interpretation completed in step 18 using final-model coefficients and

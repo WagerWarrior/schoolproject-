@@ -1,3 +1,6 @@
+APP AVAILABLE: streamlit run app.py; local URL http://127.0.0.1:8501.
+See README.md for setup and limitations; run python check_app.py to verify.
+
 CURRENT STATUS: Final Logistic B C=1 cutoff 0.3 evaluated on 885 test rows.
 See README.md and results/final_test_metrics.json. Earlier text is historical.
 Do not tune on test results.
