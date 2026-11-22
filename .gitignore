@@ -8,4 +8,5 @@ data/
 models/
 analysis/
 results/*validation_predictions.csv
+results/final_test_predictions.csv
 step*_audit.json
