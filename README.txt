@@ -89,3 +89,7 @@ DEPTH 7
 Run .venv/bin/python 13_try_tree_depth7.py after steps 10 and 12.
 Current repository: https://github.com/WagerWarrior/schoolproject-
 Depth 5 remains best tested for B by mean validation F1. Test remains reserved.
+
+LOGISTIC C COMPARISON
+Run .venv/bin/python 14_tune_logistic_c.py. Compares C=0.1,1,10 with identical
+folds and cutoff 0.5. See results/logistic_c_summary.csv and Learning Notes.txt.

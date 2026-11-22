@@ -95,3 +95,5 @@ Step 11: Trained random forest A/B with 100 trees, seed 42, default unrestricted
 Step 12: Compared depth 5 against saved depth 3 on identical A/B folds. Other settings unchanged. Mean F1 A decreased 0.5032 to 0.4912; B increased 0.6416 to 0.6752 (four of five folds improved). B false alarms increased 206 to 233; caught dropouts increased 637 to 700. Fold F1 spread rose slightly. Saved separate depth-5 candidates and results; no final selection or test evaluation.
 
 Step 13: Tried depth 7 on identical validation folds. Mean F1 A 0.4955, B 0.6510. B worse than depth 5; preserve all candidate results. User specified schoolproject- as destination repository; verified empty and public before adding code/notes/aggregate results. No test evaluation performed.
+
+Step 14: Compared logistic C=0.1,1,10 on identical A/B five-fold validation. Only C changed; cutoff 0.5. All 30 fits converged. Mean F1 A: 0.4121,0.4585,0.4676; B: 0.6954,0.7017,0.7014. B C=1 and C=10 effectively tied; keep C=1 as current candidate without claiming significant superiority. C=10 leads A by F1 only. Verified C=1 reproduces original scores. No test data loaded or final model chosen.

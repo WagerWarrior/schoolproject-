@@ -46,6 +46,7 @@ python 10_train_decision_tree.py
 python 11_train_random_forest.py
 python 12_try_tree_depth5.py
 python 13_try_tree_depth7.py
+python 14_tune_logistic_c.py
 ```
 
 The preview scripts explain preprocessing; their fitted transformations must
@@ -107,6 +108,24 @@ A's best. Increasing depth to 7 did not improve B. This alone does not prove
 overfitting. Logistic B still leads these candidates on mean validation F1.
 The test group remains reserved. Run step 13 after steps 10 and 12 to rebuild
 the complete three-depth comparison.
+
+## Logistic regression C comparison
+
+We compared `C=0.1`, `1` and `10` with the same folds and cutoff 0.5.
+Smaller C applies a stronger penalty on large weights. Encoding and scaling
+were fitted separately within each training fold. Only C changed.
+
+| Inputs | C=0.1 mean F1 | C=1 mean F1 | C=10 mean F1 |
+| --- | ---: | ---: | ---: |
+| A: enrollment | 0.4121 | 0.4585 | 0.4676 |
+| B: plus semester one | 0.6954 | 0.7017 | 0.7014 |
+
+For B, C=1 and C=10 are effectively tied at this precision; the tiny difference
+is not evidence of a meaningful improvement. Keep C=1 as the current B
+candidate. C=10 leads A on mean F1 at cutoff 0.5, but not on every metric.
+These are tuning results, not unbiased final performance estimates. No final
+model was selected or tested. See `results/logistic_c_summary.csv` for fold
+means and standard deviations.
 
 ## Limitations
 

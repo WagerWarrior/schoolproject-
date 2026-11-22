@@ -156,3 +156,32 @@ depth 5, it caught 37 fewer dropouts and made 3 more false alarms.
 Depth 5 remains B's best tested depth by mean F1 (0.6752), and depth 3 remains
 A's best (0.5032). More depth did not help; this alone does not prove overfitting.
 Logistic B remains ahead on mean F1 at 0.7017. No final selection or test evaluation.
+
+LOGISTIC REGRESSION SETTINGS — STEP 14
+We tried C=0.1, C=1 and C=10. C is a hyperparameter: a setting we choose before
+training. Weights are different: the model learns them from the training data.
+Smaller C applies a stronger penalty on large weights (regularization).
+Larger C applies a weaker penalty. Larger is not automatically better.
+
+The simple model line is LogisticRegression(C=C, max_iter=1000).
+For each input version A/B and each C, we trained five fresh pipelines on the
+same saved folds. That is 2 x 3 x 5 = 30 fits. Encoding and scaling were fitted
+within each training fold. Only C changed; the prediction cutoff stayed 0.5.
+All fits completed without a convergence warning. Test data was not loaded.
+
+Mean validation F1:
+                     C=0.1       C=1       C=10
+A enrollment         0.4121      0.4585    0.4676
+B semester one       0.6954      0.7017    0.7014
+
+B's C=1 and C=10 results are almost identical; their difference is tiny compared
+with fold-to-fold variation (F1 standard deviations about 0.023 and 0.020).
+This is not a significance test. We have no evidence of a meaningful gain from
+changing B to C=10, so keep C=1 as the current B candidate.
+A's best tested C by mean F1 is 10, but its precision and ranking metrics do not
+all improve. We should describe the trade-offs, not claim every metric improved.
+C=1 reproduces our original logistic results on the same folds.
+
+We saved fold metrics, confusion counts and local validation predictions. No
+final model selection or test evaluation occurred. The tuning scores help us
+choose settings; the untouched test group will assess the locked final choice.
