@@ -1,0 +1,7 @@
+version,min_samples_leaf,true_negative,false_positive,false_negative,true_positive
+A,1,2116,286,704,433
+A,5,2203,199,782,355
+A,10,2243,159,820,317
+B,1,2211,191,473,664
+B,5,2262,140,517,620
+B,10,2262,140,523,614

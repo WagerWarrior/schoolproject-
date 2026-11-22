@@ -93,3 +93,8 @@ Depth 5 remains best tested for B by mean validation F1. Test remains reserved.
 LOGISTIC C COMPARISON
 Run .venv/bin/python 14_tune_logistic_c.py. Compares C=0.1,1,10 with identical
 folds and cutoff 0.5. See results/logistic_c_summary.csv and Learning Notes.txt.
+
+FOREST LEAF-SIZE COMPARISON
+Run .venv/bin/python 15_tune_forest_leaf.py. Compares minimum leaf sizes 1,5,10
+with 100 trees, identical folds and cutoff 0.5. See Learning Notes.txt and
+results/forest_leaf_summary.csv. Raw predictions remain local.

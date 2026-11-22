@@ -47,6 +47,7 @@ python 11_train_random_forest.py
 python 12_try_tree_depth5.py
 python 13_try_tree_depth7.py
 python 14_tune_logistic_c.py
+python 15_tune_forest_leaf.py
 ```
 
 The preview scripts explain preprocessing; their fitted transformations must
@@ -126,6 +127,22 @@ candidate. C=10 leads A on mean F1 at cutoff 0.5, but not on every metric.
 These are tuning results, not unbiased final performance estimates. No final
 model was selected or tested. See `results/logistic_c_summary.csv` for fold
 means and standard deviations.
+
+## Random forest leaf-size comparison
+
+We compared random forest `min_samples_leaf=1,5,10` with 100 trees, seed 42,
+the same five folds and cutoff 0.5. Larger leaves require more training samples
+in each endpoint. Encoding is fitted within each fold; no scaling is used.
+
+| Inputs | Leaf size 1 F1 | Leaf size 5 F1 | Leaf size 10 F1 |
+| --- | ---: | ---: | ---: |
+| A: enrollment | 0.4661 | 0.4191 | 0.3927 |
+| B: plus semester one | 0.6667 | 0.6536 | 0.6494 |
+
+Leaf size 1 retains the highest mean F1 at cutoff 0.5 for both input sets.
+Larger leaves improved precision but reduced recall. They did not improve all
+metrics together. These tuning results do not establish final test performance.
+See `results/forest_leaf_summary.csv` for all metrics and fold variation.
 
 ## Limitations
 

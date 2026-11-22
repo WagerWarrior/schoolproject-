@@ -185,3 +185,37 @@ C=1 reproduces our original logistic results on the same folds.
 We saved fold metrics, confusion counts and local validation predictions. No
 final model selection or test evaluation occurred. The tuning scores help us
 choose settings; the untouched test group will assess the locked final choice.
+
+RANDOM FOREST LEAF-SIZE TUNING — STEP 15
+A leaf is the endpoint of a tree where it makes a prediction. min_samples_leaf
+sets the minimum number of training samples required in each leaf. Increasing
+it prevents splits that would leave an endpoint with too few training samples.
+It does not specify how many questions to ask or how many trees to build.
+In a bootstrap forest this refers to samples used by each individual tree,
+not a requirement about validation students or every student in the dataset.
+
+We compared 1, 5 and 10. Each forest still has 100 trees, seed 42, default
+unrestricted depth and cutoff 0.5. Only min_samples_leaf changes. For each
+setting and input version, we fit five fresh pipelines: 30 fits in total.
+Encoding is learned within each training fold. No scaling or test evaluation.
+
+Simple model setup:
+RandomForestClassifier(n_estimators=100, min_samples_leaf=leaf_size,
+                       random_state=42, n_jobs=-1)
+
+Mean validation F1:
+                         Leaf 1      Leaf 5      Leaf 10
+A enrollment             0.4661      0.4191      0.3927
+B semester one           0.6667      0.6536      0.6494
+
+For B, mean precision rose from 0.7774 to 0.8181 at leaf 5, while recall fell
+from 0.5840 to 0.5453. Larger leaves flagged fewer students: fewer false alarms,
+but more missed dropouts. B's F1 standard deviation across folds was 0.0099,
+0.0088 and 0.0076 respectively. Lower variation does not mean higher performance.
+Keep leaf size 1 as the current forest candidate for F1 at cutoff 0.5; other
+metrics and a different cutoff can lead to a different trade-off.
+The leaf-1 scores reproduce the original forest results. No final model chosen.
+
+All three model families now have a small settings comparison. Logistic B C=1
+still leads on mean F1 among the evaluated candidates at cutoff 0.5. Next is
+reviewing validation cutoff trade-offs before locking the final configuration.

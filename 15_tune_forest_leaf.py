@@ -1,0 +1,78 @@
+"""Compare three random forest leaf-size settings using our saved training-only validation folds."""
+from pathlib import Path
+import json
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import (accuracy_score, precision_score, recall_score,
+                             f1_score, roc_auc_score, average_precision_score,
+                             confusion_matrix, precision_recall_curve, auc)
+from preprocessing import make_encoder
+
+folder = Path(__file__).resolve().parent
+X = pd.read_csv(folder / 'data/split/X_train.csv', index_col='source_row_index')
+y = pd.read_csv(folder / 'data/split/y_train.csv', index_col='source_row_index')['dropout']
+manifest = pd.read_csv(folder / 'data/split/split_manifest.csv', index_col='source_row_index')
+folds = manifest.loc[X.index, 'validation_fold']
+plan = json.loads((folder / 'feature_plan.json').read_text())
+assert X.index.equals(y.index) and folds.between(1, 5).all()
+
+results = []
+predictions = []
+for version in ['A', 'B']:
+    columns = plan[f'model_{version.lower()}_columns']
+    inputs = X[columns]
+    for leaf_size in [1, 5, 10]:
+        for fold in range(1, 6):
+            train_rows = folds != fold
+            validation_rows = folds == fold
+            # Larger leaves prevent splits that create very small endpoint groups.
+            # Fit a new encoder and forest inside each training fold; no scaling.
+            model = Pipeline([
+                ('prepare', make_encoder(version)),
+                ('classifier', RandomForestClassifier(n_estimators=100, min_samples_leaf=leaf_size,
+                                                       random_state=42, n_jobs=-1)),
+            ])
+            model.fit(inputs.loc[train_rows], y.loc[train_rows])
+            scores = model.predict_proba(inputs.loc[validation_rows])[:, 1]
+            predicted = (scores >= 0.5).astype(int)
+            actual = y.loc[validation_rows]
+            curve_precision, curve_recall, _ = precision_recall_curve(actual, scores)
+            tn, fp, fn, tp = confusion_matrix(actual, predicted, labels=[0, 1]).ravel()
+            results.append({
+                'version': version, 'min_samples_leaf': leaf_size, 'fold': fold,
+                'accuracy': accuracy_score(actual, predicted),
+                'precision': precision_score(actual, predicted, zero_division=0),
+                'recall': recall_score(actual, predicted, zero_division=0),
+                'F1': f1_score(actual, predicted, zero_division=0),
+                'ROC_AUC': roc_auc_score(actual, scores),
+                'average_precision': average_precision_score(actual, scores),
+                'PR_AUC_trapezoidal': auc(curve_recall, curve_precision),
+                'true_negative': tn, 'false_positive': fp,
+                'false_negative': fn, 'true_positive': tp,
+            })
+            predictions.append(pd.DataFrame({
+                'source_row_index': actual.index, 'version': version,
+                'min_samples_leaf': leaf_size, 'fold': fold, 'actual': actual.to_numpy(),
+                'score': scores, 'predicted': predicted,
+            }))
+
+output = folder / 'results'
+output.mkdir(exist_ok=True)
+results = pd.DataFrame(results)
+metrics = ['accuracy', 'precision', 'recall', 'F1', 'ROC_AUC',
+           'average_precision', 'PR_AUC_trapezoidal']
+results.to_csv(output / 'forest_leaf_folds.csv', index=False)
+results.groupby(['version', 'min_samples_leaf'])[metrics].agg(['mean', 'std']).to_csv(
+    output / 'forest_leaf_summary.csv')
+results.groupby(['version', 'min_samples_leaf'])[['true_negative', 'false_positive',
+                                  'false_negative', 'true_positive']].sum().to_csv(
+    output / 'forest_leaf_confusion_counts.csv')
+pd.concat(predictions, ignore_index=True).to_csv(
+    output / 'forest_leaf_validation_predictions.csv', index=False)
+print('Mean validation scores; cutoff 0.5, only min_samples_leaf changes:')
+print(results.groupby(['version', 'min_samples_leaf'])[metrics].mean().round(4).to_string())
+print('\nF1 mean and variation across folds:')
+print(results.groupby(['version', 'min_samples_leaf'])['F1'].agg(['mean', 'std']).round(4))
+print('No test data loaded. These are tuning results, not final test scores.')
+print('No candidate selected or saved as a final model.')
