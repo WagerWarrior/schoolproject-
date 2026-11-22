@@ -1,0 +1,36 @@
+{
+  "evaluated_at_utc": "2026-11-22T01:57:42.203316+00:00",
+  "configuration": {
+    "status": "Locked by user before final test evaluation",
+    "model": "LogisticRegression",
+    "feature_set": "B",
+    "C": 1,
+    "max_iter": 1000,
+    "cutoff": 0.3,
+    "selection_basis": "Training-only five-fold validation and user decision. B C=1 retained after C comparison; cutoff 0.3 had the highest mean validation F1 among 0.3, 0.4, 0.5, 0.6 and caught more dropouts at the cost of more false alarms.",
+    "test_policy": "Evaluate this fixed configuration once. Do not change it based on test results. Educational retrospective classification, not validated future-dropout prediction."
+  },
+  "training_students": 3539,
+  "test_students": 885,
+  "actual_dropouts": 284,
+  "actual_other_outcomes": 601,
+  "accuracy": 0.8101694915254237,
+  "precision": 0.6835443037974683,
+  "recall": 0.7605633802816901,
+  "F1": 0.72,
+  "ROC_AUC": 0.8851444775140025,
+  "average_precision": 0.8255418234474451,
+  "PR_AUC_trapezoidal": 0.8250114991930712,
+  "true_negative": 501,
+  "false_positive": 100,
+  "false_negative": 68,
+  "true_positive": 216,
+  "false_positive_rate": 0.16638935108153077,
+  "predicted_dropout_count": 316,
+  "notes": [
+    "No fitting or setting selection used test rows.",
+    "This is one held-out test evaluation, not cross-validation.",
+    "Scores have not been checked for calibration.",
+    "Recorded outcomes; no dropout dates to establish future forecasting."
+  ]
+}

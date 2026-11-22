@@ -1,6 +1,9 @@
 STUDENT DROPOUT PROJECT — LEARNING NOTES
 Updated: November 21, 2026
 
+CURRENT STATUS: Final B model evaluated on the reserved test group. Earlier
+sections describe historical stages; see Step 17 below for the final outcome.
+
 WHAT WE ARE BUILDING
 We compare enrollment information alone (A, 11 original inputs) against
 enrollment plus six first-semester inputs (B, 17 original inputs).
@@ -254,3 +257,45 @@ this one classification cutoff does not change those metrics. F1, precision,
 recall, accuracy and confusion-matrix counts can change.
 Next: review these trade-offs and specify the final model/cutoff selection rule
 before evaluating the reserved test set. No automatic real-student decisions.
+
+FINAL LOCK AND TEST EVALUATION — STEP 17
+The user explicitly selected logistic regression B, C=1, cutoff 0.3.
+We saved final_model_config.json and committed that decision BEFORE evaluating
+the test data. No settings were changed after seeing the results.
+
+1. Use all 3539 training students to fit a fresh pipeline. Encoding learns
+   categories, scaling learns means/spreads, and logistic regression learns
+   weights using only these training students.
+2. Open the 885 reserved test students. Apply the already-fitted transformations
+   and model. Do not call fit() on test data.
+3. Predict dropout when the score is at least 0.3.
+4. Compare those predictions with the test students' recorded outcomes.
+
+Final test results:
+Accuracy 81.02%: the fraction of all 885 predictions that were correct.
+Precision 68.35%: of the 316 flagged students, 216 had recorded dropout outcomes.
+Recall 76.06%: of the 284 actual dropouts, the model caught 216.
+F1 0.7200: combines precision and recall at the chosen cutoff.
+ROC-AUC 0.8851; average precision 0.8255; trapezoidal PR-AUC 0.8250.
+Average precision and trapezoidal PR-AUC are distinct calculations.
+
+Confusion matrix, rows actual and columns predicted:
+                    Predict other     Predict dropout
+Actual other                501                  100
+Actual dropout               68                  216
+
+The false-positive rate is 100/601 = 16.64%. This is different from the fraction
+of flags that were false: 100/316 = 31.65%.
+Test F1 0.72 is close to mean validation F1 0.7181. Validation was averaged over
+five folds; this test result is one evaluation of a final training-fitted model.
+It does not prove the model generalizes to other institutions or future cohorts.
+We did not evaluate A on the test group, so claims about A versus B still rely
+on validation comparisons. Test data is now evaluated, not untouched.
+
+Saved final pipeline, cutoff and input columns together in local
+models/final_logistic_b.joblib. The app must use the saved cutoff with the scores;
+the classifier's default predict() would use a different decision rule.
+Public GitHub receives the config, script and aggregate metrics; individual
+test predictions and model artifacts remain local. The evaluation script stops
+if a report already exists. Next: document interpretation/limitations and build
+the educational app using the locked pipeline. Do not tune further on test scores.

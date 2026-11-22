@@ -1,3 +1,7 @@
+CURRENT STATUS: Final Logistic B C=1 cutoff 0.3 evaluated on 885 test rows.
+See README.md and results/final_test_metrics.json. Earlier text is historical.
+Do not tune on test results.
+
 STUDENT DROPOUT PROJECT — PYTHON WORKFLOW
 
 Current stage: data checks, 80/20 split and training-only exploration. No trained model yet.

@@ -2,6 +2,37 @@
 
 Project repository: https://github.com/WagerWarrior/schoolproject-
 
+## Current status: final B model evaluated
+
+The user locked logistic regression B, C=1, cutoff 0.3 before opening the held-out
+test data. We fitted a fresh preprocessing/model pipeline on all 3,539 training
+rows and evaluated once on the 885 test rows. No settings changed afterward.
+
+| Final test metric | Value |
+| --- | ---: |
+| Accuracy | 0.8102 |
+| Precision | 0.6835 |
+| Recall | 0.7606 |
+| F1 | 0.7200 |
+| ROC-AUC | 0.8851 |
+| Average precision | 0.8255 |
+| PR-AUC (trapezoidal) | 0.8250 |
+
+Test counts: 216 caught dropouts, 68 missed dropouts, 100 false alarms and 501
+correct other outcomes. There were 284 actual dropouts and 601 other outcomes.
+The model flagged 316 students. These results are for B only; our A/B comparison
+remains based on validation, not a held-out comparison of A and B.
+
+Configuration: `final_model_config.json`; results: `results/final_test_metrics.json`.
+The local `models/final_logistic_b.joblib` stores the pipeline, input columns and
+cutoff together. Its scores are not established to be calibrated probabilities.
+The app must apply cutoff 0.3 to `predict_proba(... )[:, 1]`, rather than relying
+on the classifier's default `predict()` cutoff. Model and individual test
+prediction files are excluded from Git. The script refuses to overwrite an
+existing evaluation. Do not tune on these test results.
+
+The sections below document earlier experiments and their decisions at the time.
+
 ITEC 3040 course project comparing enrollment information (A) with enrollment
 plus first-semester results (B). Dropout is 1; Enrolled and Graduate are 0.
 
@@ -50,6 +81,10 @@ python 14_tune_logistic_c.py
 python 15_tune_forest_leaf.py
 python 16_compare_cutoffs.py
 ```
+
+After locking the model settings, the final evaluation was run with
+`python 17_evaluate_final_model.py`. Read the saved results rather than rerunning
+it to guide further tuning. The application and final report remain to do.
 
 The preview scripts explain preprocessing; their fitted transformations must
 not be reused for cross-validation. The training scripts fit new pipelines
