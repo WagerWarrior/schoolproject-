@@ -80,3 +80,7 @@ seed 42, default depth, cutoff 0.5. Same A/B folds; no scaling or tuning.
 Results in results/random_forest_*.csv; fitted models remain local in models/.
 Current initial comparisons include all three methods. Tuning and final test
 evaluation remain to do. See README.md and Learning Notes.txt for results.
+
+DEPTH-5 COMPARISON
+Run .venv/bin/python 12_try_tree_depth5.py after step 10. Depth-3 results remain
+unchanged. See results/tree_depth_comparison.csv and Learning Notes.txt.

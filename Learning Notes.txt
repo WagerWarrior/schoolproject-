@@ -122,3 +122,25 @@ We saved fold metrics, validation predictions, confusion counts and provisional
 full-training models. These are not final test results or a final selection.
 Next: compare all methods, then try a small validation-based parameter search
 and examine cutoff trade-offs before locking choices for final test evaluation.
+
+FIRST TUNING COMPARISON — STEP 12
+We increased only max_depth from 3 to 5. A student can now go through up to
+five questions along a path. The algorithm still chooses the questions itself.
+The feature sets, five folds, seed 42 and prediction cutoff 0.5 are unchanged.
+Encoding is fitted separately inside each fold. Test inputs/answers not loaded.
+
+Mean validation F1:
+                    Depth 3       Depth 5
+Enrollment A         0.5032        0.4912
+Semester-one B       0.6416        0.6752
+
+B improved in four of five folds, but its F1 spread increased slightly:
+fold standard deviation 0.0251 at depth 3 versus 0.0326 at depth 5.
+This standard deviation describes variation across folds, not a confidence interval.
+B caught 700 dropouts rather than 637, but made 233 false alarms rather than 206.
+B mean precision fell from 0.7715 to 0.7516; recall rose from 0.5602 to 0.6158.
+A lost F1 at depth 5 even though its accuracy increased slightly.
+Conclusion: deeper helped B's F1 but did not help every setup or every metric.
+Among these two depths, depth 5 is B's better F1 candidate, and depth 3 is A's.
+Logistic B still has the higher initial mean F1, 0.7017. No final selection yet.
+Depth-3 files are preserved; depth-5 results and models have separate names.

@@ -1,0 +1,76 @@
+|--- numeric_and_binary__Age at enrollment <= 22.50
+|   |--- categories__Course_Nursing <= 0.50
+|   |   |--- categories__Mother's qualification_Unknown <= 0.50
+|   |   |   |--- categories__Course_Social Service <= 0.50
+|   |   |   |   |--- categories__Application mode_1st phase - general contingent <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Application mode_1st phase - general contingent >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- categories__Course_Social Service >  0.50
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- categories__Mother's qualification_Unknown >  0.50
+|   |   |   |--- categories__Mother's occupation_Administrative staff <= 0.50
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- categories__Mother's occupation_Administrative staff >  0.50
+|   |   |   |   |--- class: 0
+|   |--- categories__Course_Nursing >  0.50
+|   |   |--- categories__Mother's occupation_Other Situation <= 0.50
+|   |   |   |--- categories__Father's occupation_Student <= 0.50
+|   |   |   |   |--- categories__Father's qualification_Technological specialization course <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Father's qualification_Technological specialization course >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Father's occupation_Student >  0.50
+|   |   |   |   |--- class: 1
+|   |   |--- categories__Mother's occupation_Other Situation >  0.50
+|   |   |   |--- categories__Application mode_1st phase - general contingent <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- categories__Application mode_1st phase - general contingent >  0.50
+|   |   |   |   |--- class: 1
+|--- numeric_and_binary__Age at enrollment >  22.50
+|   |--- categories__Father's qualification_Unknown <= 0.50
+|   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 24.50
+|   |   |   |   |--- categories__Course_Nursing <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Course_Nursing >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Age at enrollment >  24.50
+|   |   |   |   |--- categories__Course_Equinculture <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Equinculture >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |--- categories__Application mode_Holders of other higher courses <= 0.50
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Application mode_Holders of other higher courses >  0.50
+|   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. >  0.50
+|   |   |   |   |   |--- class: 0
+|   |--- categories__Father's qualification_Unknown >  0.50
+|   |   |--- categories__Application mode_Change of course <= 0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 54.50
+|   |   |   |   |--- numeric_and_binary__Displaced <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Displaced >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- numeric_and_binary__Age at enrollment >  54.50
+|   |   |   |   |--- class: 0
+|   |   |--- categories__Application mode_Change of course >  0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 26.00
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Age at enrollment >  26.00
+|   |   |   |   |--- numeric_and_binary__Age at enrollment <= 28.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Age at enrollment >  28.50
+|   |   |   |   |   |--- class: 0

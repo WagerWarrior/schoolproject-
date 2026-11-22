@@ -42,6 +42,7 @@ python 08_train_first_models.py
 python 09_review_errors.py
 python 10_train_decision_tree.py
 python 11_train_random_forest.py
+python 12_try_tree_depth5.py
 ```
 
 The preview scripts explain preprocessing; their fitted transformations must
@@ -73,6 +74,21 @@ within each training fold.
 
 Saved full-training models and tree rules are provisional, not selected final models.
 See `Learning Notes.txt` for explanations and `Project Decision Log.txt` for decisions.
+
+## First tuning comparison: depth 3 versus 5
+
+Only tree depth changed; folds, features, seed and cutoff remained the same.
+Depth-3 results are preserved. See `results/tree_depth_comparison.csv`.
+
+| Inputs | Depth-3 mean F1 | Depth-5 mean F1 |
+| --- | ---: | ---: |
+| A: enrollment | 0.503 | 0.491 |
+| B: plus semester one | 0.642 | 0.675 |
+
+Depth 5 improved B in four of five folds, but not A. B caught 700 dropouts
+versus 637, with 233 false alarms versus 206. Its F1 standard deviation across
+folds rose from 0.025 to 0.033. Logistic B still has a higher initial mean F1
+(0.702). No final model or test result is claimed.
 
 ## Limitations
 

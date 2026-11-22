@@ -1,0 +1,88 @@
+|--- numeric_and_binary__Curricular units 1st sem (approved) <= 3.50
+|   |--- numeric_and_binary__Age at enrollment <= 22.50
+|   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) <= 5.50
+|   |   |   |--- categories__Application mode_3rd phase - general contingent <= 0.50
+|   |   |   |   |--- numeric_and_binary__Age at enrollment <= 18.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- numeric_and_binary__Age at enrollment >  18.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- categories__Application mode_3rd phase - general contingent >  0.50
+|   |   |   |   |--- categories__Mother's occupation_Meal preparation assistants <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Mother's occupation_Meal preparation assistants >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) >  5.50
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (evaluations) <= 6.50
+|   |   |   |   |--- categories__Mother's occupation_Personal Services, Security and Safety Workers and Sellers <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Mother's occupation_Personal Services, Security and Safety Workers and Sellers >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (evaluations) >  6.50
+|   |   |   |   |--- categories__Course_Social Service <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Social Service >  0.50
+|   |   |   |   |   |--- class: 0
+|   |--- numeric_and_binary__Age at enrollment >  22.50
+|   |   |--- numeric_and_binary__Curricular units 1st sem (approved) <= 2.50
+|   |   |   |--- categories__Mother's occupation_cleaning workers <= 0.50
+|   |   |   |   |--- numeric_and_binary__Age at enrollment <= 24.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Age at enrollment >  24.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Mother's occupation_cleaning workers >  0.50
+|   |   |   |   |--- class: 0
+|   |   |--- numeric_and_binary__Curricular units 1st sem (approved) >  2.50
+|   |   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |   |--- categories__Course_Advertising and Marketing Management <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Advertising and Marketing Management >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |   |--- class: 0
+|--- numeric_and_binary__Curricular units 1st sem (approved) >  3.50
+|   |--- numeric_and_binary__Curricular units 1st sem (approved) <= 4.50
+|   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) <= 5.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 28.50
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (without evaluations) <= 1.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (without evaluations) >  1.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- numeric_and_binary__Age at enrollment >  28.50
+|   |   |   |   |--- categories__Application mode_Over 23 years old <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Application mode_Over 23 years old >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) >  5.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 24.50
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) <= 12.12
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) >  12.12
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Age at enrollment >  24.50
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) <= 13.12
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) >  13.12
+|   |   |   |   |   |--- class: 0
+|   |--- numeric_and_binary__Curricular units 1st sem (approved) >  4.50
+|   |   |--- numeric_and_binary__Age at enrollment <= 22.50
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (approved) <= 5.50
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) <= 5.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- numeric_and_binary__Curricular units 1st sem (enrolled) >  5.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (approved) >  5.50
+|   |   |   |   |--- categories__Father's qualification_Unknown <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Father's qualification_Unknown >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- numeric_and_binary__Age at enrollment >  22.50
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) <= 12.21
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Curricular units 1st sem (grade) >  12.21
+|   |   |   |   |--- categories__Course_Equinculture <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Course_Equinculture >  0.50
+|   |   |   |   |   |--- class: 1
