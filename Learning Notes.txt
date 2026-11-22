@@ -299,3 +299,50 @@ Public GitHub receives the config, script and aggregate metrics; individual
 test predictions and model artifacts remain local. The evaluation script stops
 if a report already exists. Next: document interpretation/limitations and build
 the educational app using the locked pipeline. Do not tune further on test scores.
+
+EXPLAINING WHAT THE MODEL LEARNED — STEP 18
+We used two views without changing the final model:
+1. Read its learned weights. Positive pushes the dropout score up; negative
+   pushes it down, holding all other inputs fixed. This is a conditional model
+   relationship, not evidence that changing that feature causes an outcome.
+2. Permutation importance: shuffle one column in validation rows, keeping the
+   others unchanged, and measure how much average precision drops. Repeat five
+   times in each of five folds. Encoding/scaling/model fitting still happens
+   only on the corresponding training-fold rows. No test rows are loaded.
+
+In simple terms: mix up one column and ask, "Does the model become worse at
+ranking students by recorded dropout outcome?" A larger decrease suggests more
+reliance on that column. This uses average precision, not accuracy or F1.
+
+Largest mean decreases in validation average precision:
+Courses passed in semester one: 0.4582
+Courses enrolled in semester one: 0.0672
+Credited courses in semester one: 0.0447
+Degree program: 0.0267
+Application mode: 0.0130
+Age at enrollment: 0.0098
+These are changes in a metric, not shares of total importance or probability.
+Each value averages 25 measurements. Standard deviations are descriptive
+variation across repeats/folds, not confidence intervals or significance tests.
+
+Courses passed had final weight -2.4692 per training standard deviation: more
+passed courses lowers the score when other inputs stay fixed. Courses enrolled
+had weight +0.8958: with passed courses held fixed, more enrolled raises the
+model score. This does not mean that enrolling in more courses causes dropout.
+Credited-course weight was +0.6985; do not turn this conditional association into
+a causal story. Average grade weight was -0.0885 and its shuffled-column effect
+was small (0.0014 mean, 0.0024 standard deviation). The model uses academic
+progress, especially courses passed, rather than relying mainly on average grade.
+
+Limits: related columns share information, so one can look less important when
+another captures a similar pattern. Shuffling can produce impossible combinations
+such as more courses passed than enrolled; this can inflate estimated importance.
+Category weights and standardized numeric weights should not be ranked blindly
+as a single universal measure. Small or negative permutation values are not proof
+that a field is useless. No inputs were removed and no final settings changed.
+
+Suggested report wording: "For the locked logistic-regression setup, validation
+permutation analysis identified first-semester courses passed as the strongest
+input in this diagnostic. Its negative coefficient associates more passed
+courses with lower predicted dropout scores, holding other inputs fixed.
+These results describe model behavior, not causal effects."

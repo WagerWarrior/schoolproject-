@@ -1,0 +1,9 @@
+encoded_feature,weight,absolute_weight,column
+numbers__Curricular units 1st sem (approved),-2.4691798986872406,2.4691798986872406,Curricular units 1st sem (approved)
+numbers__Curricular units 1st sem (enrolled),0.895786642011596,0.895786642011596,Curricular units 1st sem (enrolled)
+numbers__Curricular units 1st sem (credited),0.6985014009847061,0.6985014009847061,Curricular units 1st sem (credited)
+numbers__Age at enrollment,0.2527308359035922,0.2527308359035922,Age at enrollment
+numbers__Curricular units 1st sem (without evaluations),-0.19176795328534113,0.19176795328534113,Curricular units 1st sem (without evaluations)
+numbers__Application order,0.10037293865016311,0.10037293865016311,Application order
+numbers__Curricular units 1st sem (grade),-0.08845793669356798,0.08845793669356798,Curricular units 1st sem (grade)
+numbers__Curricular units 1st sem (evaluations),-0.048911202969832555,0.048911202969832555,Curricular units 1st sem (evaluations)

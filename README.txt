@@ -107,3 +107,8 @@ CUTOFF COMPARISON
 Run .venv/bin/python 16_compare_cutoffs.py after step 14. Uses saved validation
 scores only, no retraining. No final threshold selected. See Learning Notes.txt
 and results/cutoff_comparison.csv.
+
+MODEL INTERPRETATION
+Run .venv/bin/python 18_explain_model.py after the final artifact exists.
+Reads final weights and estimates original-column importance on training-only
+validation folds. See Learning Notes.txt for the explanations and limitations.

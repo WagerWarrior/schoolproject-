@@ -4,6 +4,9 @@ Project repository: https://github.com/WagerWarrior/schoolproject-
 
 ## Current status: final B model evaluated
 
+Interpretation completed in step 18 using final-model coefficients and
+training-only validation permutation importance. No final settings changed.
+
 The user locked logistic regression B, C=1, cutoff 0.3 before opening the held-out
 test data. We fitted a fresh preprocessing/model pipeline on all 3,539 training
 rows and evaluated once on the 885 test rows. No settings changed afterward.
@@ -85,6 +88,40 @@ python 16_compare_cutoffs.py
 After locking the model settings, the final evaluation was run with
 `python 17_evaluate_final_model.py`. Read the saved results rather than rerunning
 it to guide further tuning. The application and final report remain to do.
+
+After the final artifact exists, `python 18_explain_model.py` explains weights
+and original-column importance using training-only folds. It does not rerun
+the test evaluation or overwrite the final model.
+
+## What the model learned
+
+We shuffled each original column in validation data and measured the drop in
+average precision, repeating five times in each of five folds. This evaluates
+the locked model setup using training-only refits. Bigger drops mean that
+the model relied more on that column in this check.
+
+| Original column | Mean average-precision drop |
+| --- | ---: |
+| First-semester courses passed | 0.4582 |
+| First-semester courses enrolled | 0.0672 |
+| First-semester credited courses | 0.0447 |
+| Degree program | 0.0267 |
+| Application mode | 0.0130 |
+| Age at enrollment | 0.0098 |
+
+These are metric decreases, not percentages of total importance. They do not
+sum to one. The courses-passed coefficient is negative: holding other inputs
+fixed, more passed courses lowers the model's dropout score. Numerical weights
+are per one training standard deviation, not per original unit. Category
+coefficients are conditional contributions, not standalone risk rankings.
+
+Average grade's mean importance decrease was 0.0014 with repeat/fold spread
+0.0024. Related columns can share information. Low incremental importance does
+not mean grades never matter. Shuffling related counts can also create impossible
+combinations (such as passed greater than enrolled), potentially exaggerating
+importance. Treat this as a diagnostic, not a causal ranking or a reason to
+change features after testing. All features and final settings remain unchanged.
+See `results/column_importance_summary.csv` and `results/final_numeric_weights.csv`.
 
 The preview scripts explain preprocessing; their fitted transformations must
 not be reused for cross-validation. The training scripts fit new pipelines

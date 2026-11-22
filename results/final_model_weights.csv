@@ -1,0 +1,194 @@
+encoded_feature,weight,absolute_weight
+numbers__Curricular units 1st sem (approved),-2.4691798986872406,2.4691798986872406
+categories__Mother's occupation_cleaning workers,-1.7282736903721987,1.7282736903721987
+categories__Mother's occupation_Installation and Machine Operators and Assembly Workers,1.178397846149044,1.178397846149044
+categories__Mother's qualification_Higher Education - Master's,-1.1520850237732236,1.1520850237732236
+categories__Father's occupation_Other Situation,1.124292268775647,1.124292268775647
+categories__Father's qualification_Technical-professional course,1.1079965615526632,1.1079965615526632
+categories__Course_Equinculture,1.0558887529999763,1.0558887529999763
+categories__Course_Animation and Multimedia Design,-0.9676595545968159,0.9676595545968159
+categories__Course_Basic Education,0.9634447904222728,0.9634447904222728
+categories__Mother's occupation_Student,0.9624746882931717,0.9624746882931717
+numbers__Curricular units 1st sem (enrolled),0.895786642011596,0.895786642011596
+categories__Mother's qualification_Unknown,0.8682184740669118,0.8682184740669118
+categories__Father's qualification_12th Year of Schooling - Not Completed,-0.8609034788403835,0.8609034788403835
+categories__Application mode_1st phase - special contingent (Azores Island),-0.859723049775632,0.859723049775632
+categories__Previous qualification_Higher education - bachelor's degree,0.7952629615446561,0.7952629615446561
+"categories__Mother's occupation_Intermediate level technicians from legal, social, sports, cultural and similar services",-0.7646313600706803,0.7646313600706803
+categories__Course_Social Service (evening attendance),-0.7500278302763812,0.7500278302763812
+categories__Mother's qualification_12th Year of Schooling - Not Completed,0.7389518548534882,0.7389518548534882
+categories__Mother's qualification_Higher Education - Bachelor's Degree,-0.7132521502212399,0.7132521502212399
+categories__Course_Social Service,-0.7098670856167943,0.7098670856167943
+categories__Previous qualification_Higher education - master's,0.7046886543821669,0.7046886543821669
+categories__Mother's occupation_Other administrative support staff,-0.7021880190125386,0.7021880190125386
+numbers__Curricular units 1st sem (credited),0.6985014009847061,0.6985014009847061
+categories__Previous qualification_Other - 11th year of schooling,-0.6801308834380791,0.6801308834380791
+"categories__Mother's occupation_Unskilled workers in agriculture, animal production, fisheries and forestry",-0.6776425514514713,0.6776425514514713
+"categories__Father's occupation_Farmers, livestock keepers, fishermen, hunters and gatherers, subsistence",-0.6569860049425277,0.6569860049425277
+categories__Father's occupation_teachers,-0.649664837839503,0.649664837839503
+categories__Father's qualification_8th year of schooling,-0.6352052155999341,0.6352052155999341
+"categories__Father's occupation_Intermediate level technicians from legal, social, sports, cultural and similar services",-0.6328639116197532,0.6328639116197532
+categories__Course_Tourism,0.5954269361536351,0.5954269361536351
+categories__Father's qualification_10th Year of Schooling,-0.5843765221693564,0.5843765221693564
+categories__Father's qualification_Higher education - degree (1st cycle),0.5819284902049986,0.5819284902049986
+categories__Application mode_Holders of other higher courses,0.578255640896576,0.578255640896576
+categories__Father's occupation_Unskilled Workers,0.5752334168149601,0.5752334168149601
+categories__Father's qualification_9th Year of Schooling - Not Completed,0.5706480603098788,0.5706480603098788
+categories__Father's occupation_Administrative staff,0.5619795354993101,0.5619795354993101
+categories__Father's qualification_7th Year (Old),-0.5549772961249064,0.5549772961249064
+categories__Previous qualification_Basic education 2nd cycle (6th/7th/8th year) or equiv.,-0.5471882746320027,0.5471882746320027
+categories__Application mode_1st phase - special contingent (Madeira Island),-0.5431312905551012,0.5431312905551012
+categories__Mother's qualification_Other - 11th Year of Schooling,0.539496328510747,0.539496328510747
+categories__Father's occupation_Other administrative support staff,-0.5300627618567744,0.5300627618567744
+categories__Mother's qualification_Higher education - degree (1st cycle),0.5149554777068883,0.5149554777068883
+categories__Mother's occupation_teachers,0.5134200649063894,0.5134200649063894
+categories__Course_Biofuel Production Technologies,0.5125784600601329,0.5125784600601329
+categories__Application mode_Change of course,-0.49363935568379,0.49363935568379
+categories__Father's qualification_Higher Education - Master (2nd cycle),-0.4904755051515002,0.4904755051515002
+"categories__Mother's occupation_Personal Services, Security and Safety Workers and Sellers",0.462347376332522,0.462347376332522
+categories__Father's qualification_Specialized higher studies course,-0.45459280191036644,0.45459280191036644
+categories__Course_Nursing,-0.45063152700436937,0.45063152700436937
+categories__Application mode_3rd phase - general contingent,0.44853542301373983,0.44853542301373983
+categories__Mother's occupation_Meal preparation assistants,-0.44343028495899883,0.44343028495899883
+categories__Mother's occupation_Other Situation,0.4397047011629692,0.4397047011629692
+categories__Previous qualification_Higher education - master (2nd cycle),-0.43835337308188577,0.43835337308188577
+categories__Application mode_Over 23 years old,0.42792063659865737,0.42792063659865737
+categories__Course_Journalism and Communication,0.42224623952113177,0.42224623952113177
+categories__Mother's occupation_Armed Forces Professions,-0.4148318955979057,0.4148318955979057
+categories__Father's qualification_Higher Education - Bachelor's Degree,0.41435357766791564,0.41435357766791564
+categories__Course_Veterinary Nursing,-0.41128906266528076,0.41128906266528076
+"categories__Mother's occupation_Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers",0.4071550235012021,0.4071550235012021
+"categories__Mother's occupation_Skilled Workers in Industry, Construction and Craftsmen",0.4065844922276664,0.4065844922276664
+categories__Course_Informatics Engineering,-0.4019874936436204,0.4019874936436204
+categories__Father's qualification_Higher Education - Master's,0.3980918724707332,0.3980918724707332
+"categories__Father's occupation_Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers",0.390462921445503,0.390462921445503
+categories__Mother's occupation_Health professionals,-0.3830513637496994,0.3830513637496994
+categories__Application mode_Ordinance No. 612/93,0.38269929513966294,0.38269929513966294
+categories__Previous qualification_10th year of schooling - not completed,-0.38244183837593937,0.38244183837593937
+categories__Course_Management,-0.3779579340945745,0.3779579340945745
+categories__Mother's qualification_8th year of schooling,0.3727951885371215,0.3727951885371215
+categories__Father's occupation_Armed Forces Professions,0.3653890252499381,0.3653890252499381
+categories__Father's qualification_11th Year of Schooling - Not Completed,0.3631095651712393,0.3631095651712393
+"categories__Father's occupation_Unskilled workers in extractive industry, construction, manufacturing and transport",-0.36193749180234314,0.36193749180234314
+categories__Father's occupation_Student,0.35514119743775,0.35514119743775
+categories__Father's qualification_Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv.,-0.3546124402747859,0.3546124402747859
+categories__Mother's occupation_Administrative staff,0.34954092331495673,0.34954092331495673
+categories__Application mode_1st phase - general contingent,-0.3458437015708697,0.3458437015708697
+categories__Mother's occupation_personal service workers,-0.34515274260683737,0.34515274260683737
+categories__Father's qualification_General Course of Administration and Commerce,0.342173295873793,0.342173295873793
+categories__Mother's qualification_Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv.,-0.31797218945179484,0.31797218945179484
+categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv.,-0.31702792445653805,0.31702792445653805
+"categories__Father's occupation_Skilled Workers in Industry, Construction and Craftsmen",0.31234715553957965,0.31234715553957965
+categories__Father's qualification_Technological specialization course,-0.31165041091872725,0.31165041091872725
+"categories__Father's occupation_Skilled construction workers and the like, except electricians",-0.30937009825246575,0.30937009825246575
+categories__Mother's occupation_Specialists in Intellectual and Scientific Activities,0.30885059760810196,0.30885059760810196
+binary__Daytime/evening attendance,0.3078886203702004,0.3078886203702004
+categories__Mother's qualification_Frequency of Higher Education,-0.30690702688131066,0.30690702688131066
+categories__Application mode_International student (bachelor),-0.3066985048119662,0.3066985048119662
+categories__Mother's qualification_7th Year (Old),0.30181712128184585,0.30181712128184585
+categories__Father's occupation_Installation and Machine Operators and Assembly Workers,0.29676834033325616,0.29676834033325616
+categories__Mother's qualification_Higher Education - Doctorate (3rd cycle),0.28755991025609084,0.28755991025609084
+categories__Application mode_Change of institution/course,0.2842172505034685,0.2842172505034685
+categories__Mother's qualification_Technological specialization course,-0.2834818738175452,0.2834818738175452
+categories__Application mode_Change of institution/course (International),-0.28319299693172983,0.28319299693172983
+"categories__Mother's occupation_Office workers, secretaries in general and data processing operators",-0.2807102247799326,0.2807102247799326
+categories__Mother's occupation_Intermediate Level Technicians and Professions,0.27479698718028095,0.27479698718028095
+categories__Father's occupation_sellers,0.2716162873064531,0.2716162873064531
+categories__Mother's qualification_11th Year of Schooling - Not Completed,0.27066192822431545,0.27066192822431545
+categories__Mother's occupation_Not specified (source blank),0.2701158770712271,0.2701158770712271
+categories__Father's occupation_Intermediate Level Technicians and Professions,0.2682243773936923,0.2682243773936923
+categories__Father's occupation_Other Armed Forces personnel,0.26468710194772616,0.26468710194772616
+categories__Application mode_Ordinance No. 854-B/99,0.26248146329552496,0.26248146329552496
+categories__Father's qualification_Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv.,-0.26228019429721044,0.26228019429721044
+categories__Course_Agronomy,-0.256300608513869,0.256300608513869
+categories__Course_Oral Hygiene,0.25502347558632493,0.25502347558632493
+numbers__Age at enrollment,0.2527308359035922,0.2527308359035922
+categories__Mother's qualification_Can't read or write,-0.25045469353764005,0.25045469353764005
+categories__Father's occupation_Market-oriented farmers and skilled agricultural and animal production workers,-0.24954362066951408,0.24954362066951408
+"categories__Father's occupation_Specialists in the physical sciences, mathematics, engineering and related techniques",-0.2456008854751698,0.2456008854751698
+categories__Mother's qualification_Higher Education - Degree,-0.2346429364413965,0.2346429364413965
+categories__Mother's qualification_Specialized higher studies course,0.23368411624005908,0.23368411624005908
+"categories__Mother's occupation_Technicians and professionals, of intermediate level of health",-0.23292035698461444,0.23292035698461444
+categories__Mother's qualification_7th year of schooling,-0.2269881607416762,0.2269881607416762
+categories__Mother's qualification_Higher Education - Doctorate,-0.225562600991946,0.225562600991946
+categories__Father's qualification_7th year of schooling,-0.2091636947966627,0.2091636947966627
+"categories__Father's occupation_Unskilled workers in agriculture, animal production, fisheries and forestry",-0.20862631843756152,0.20862631843756152
+categories__Father's occupation_Meal preparation assistants,0.20644390913325514,0.20644390913325514
+categories__Father's qualification_Can't read or write,0.20008815094640597,0.20008815094640597
+numbers__Curricular units 1st sem (without evaluations),-0.19176795328534113,0.19176795328534113
+"categories__Father's occupation_Workers in food processing, woodworking, clothing and other industries and crafts",-0.19001599519707835,0.19001599519707835
+categories__Mother's qualification_Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv.,-0.18601462437697502,0.18601462437697502
+categories__Mother's qualification_9th Year of Schooling - Not Completed,-0.1835149271630526,0.1835149271630526
+"categories__Father's occupation_Skilled workers in metallurgy, metalworking and similar",-0.1769620262738646,0.1769620262738646
+categories__Mother's qualification_Professional higher technical course,-0.17238603228122948,0.17238603228122948
+categories__Father's occupation_Fixed plant and machine operators,-0.17001975987456092,0.17001975987456092
+categories__Mother's occupation_Unskilled Workers,0.1665977771602573,0.1665977771602573
+categories__Application mode_Technological specialization diploma holders,-0.16637819322083963,0.16637819322083963
+categories__Application mode_Short cycle diploma holders,-0.16390001957856493,0.16390001957856493
+categories__Previous qualification_Basic education 3rd cycle (9th/10th/11th year) or equiv.,0.15311776021562,0.15311776021562
+categories__Mother's occupation_sellers,-0.14874347985005829,0.14874347985005829
+categories__Father's qualification_Higher Education - Doctorate (3rd cycle),0.148287937155128,0.148287937155128
+categories__Father's occupation_Information and communication technology technicians,-0.14283001232326362,0.14283001232326362
+"categories__Father's occupation_Technicians and professionals, of intermediate level of health",-0.1410662474145468,0.1410662474145468
+categories__Father's qualification_Unknown,0.14068788190265008,0.14068788190265008
+"categories__Father's occupation_Personal Services, Security and Safety Workers and Sellers",0.13868227428953103,0.13868227428953103
+"categories__Mother's occupation_Unskilled workers in extractive industry, construction, manufacturing and transport",0.13649405549568905,0.13649405549568905
+"categories__Application mode_Ordinance No. 533-A/99, item b3 (Other Institution)",0.13135627126989657,0.13135627126989657
+categories__Mother's qualification_10th Year of Schooling,-0.13013756137635393,0.13013756137635393
+categories__Father's occupation_personal service workers,-0.1252552404880941,0.1252552404880941
+categories__Previous qualification_12th year of schooling - not completed,0.12312270941717492,0.12312270941717492
+categories__Father's qualification_Frequency of Higher Education,0.12184643380200301,0.12184643380200301
+"categories__Father's occupation_Farmers and Skilled Workers in Agriculture, Fisheries and Forestry",-0.11997631617436529,0.11997631617436529
+"categories__Mother's occupation_Workers in food processing, woodworking, clothing and other industries and crafts",0.11780468917764338,0.11780468917764338
+categories__Father's occupation_Armed Forces Sergeants,-0.11761881651220572,0.11761881651220572
+categories__Mother's occupation_Intermediate level science and engineering technicians and professions,-0.11590591046597597,0.11590591046597597
+"categories__Father's occupation_Specialists in finance, accounting, administrative organization, public and commercial relations",-0.1136250777788886,0.1136250777788886
+categories__Mother's occupation_Specialists in information and communication technologies (ICT),-0.1136250777788886,0.1136250777788886
+categories__Previous qualification_Higher education - degree (1st cycle),-0.11211543890619902,0.11211543890619902
+categories__Previous qualification_Technological specialization course,-0.10931995857121907,0.10931995857121907
+categories__Father's occupation_assembly workers,-0.1042539936772796,0.1042539936772796
+categories__Father's qualification_Can read without having a 4th year of schooling,-0.1013980355425767,0.1013980355425767
+numbers__Application order,0.10037293865016311,0.10037293865016311
+categories__Father's qualification_Complementary High School Course - not concluded,0.09521438586018878,0.09521438586018878
+categories__Father's occupation_Intermediate level science and engineering technicians and professions,-0.09266873473324577,0.09266873473324577
+"categories__Application mode_Ordinance No. 533-A/99, item b2) (Different Plan)",0.09063767191521357,0.09063767191521357
+categories__Mother's qualification_Secondary Education - 12th Year of Schooling or Eq.,-0.08959117108374451,0.08959117108374451
+numbers__Curricular units 1st sem (grade),-0.08845793669356798,0.08845793669356798
+"categories__Mother's occupation_Data, accounting, statistical, financial services and registry-related operators",-0.08103930793686623,0.08103930793686623
+categories__Course_Advertising and Marketing Management,0.0802661410455696,0.0802661410455696
+categories__Father's qualification_Higher Education - Doctorate,0.076636462499817,0.076636462499817
+categories__Father's occupation_Directors of administrative and commercial services,-0.07529161191885785,0.07529161191885785
+"categories__Mother's occupation_Farmers and Skilled Workers in Agriculture, Fisheries and Forestry",0.07503382277460083,0.07503382277460083
+categories__Father's qualification_Complementary High School Course,0.07502737754802345,0.07502737754802345
+categories__Father's occupation_Not specified (source blank),0.06982300392399768,0.06982300392399768
+"categories__Mother's occupation_Skilled construction workers and the like, except electricians",-0.06890863751690549,0.06890863751690549
+categories__Previous qualification_Secondary education,-0.0649022531328213,0.0649022531328213
+categories__Father's occupation_Health professionals,-0.06253174548628423,0.06253174548628423
+categories__Father's occupation_Vehicle drivers and mobile equipment operators,-0.06156122539004763,0.06156122539004763
+categories__Father's qualification_Secondary Education - 12th Year of Schooling or Eq.,-0.05265140257651337,0.05265140257651337
+categories__Father's qualification_Other - 11th Year of Schooling,0.05141578216253597,0.05141578216253597
+categories__Mother's qualification_Technical-professional course,-0.049217120959135816,0.049217120959135816
+numbers__Curricular units 1st sem (evaluations),-0.048911202969832555,0.048911202969832555
+categories__Application mode_Transfer,0.04605292487783096,0.04605292487783096
+categories__Application mode_2nd phase - general contingent,0.04227756660635513,0.04227756660635513
+categories__Mother's qualification_Higher Education - Master (2nd cycle),-0.040988398411369434,0.040988398411369434
+categories__Previous qualification_11th year of schooling - not completed,0.04030286964260091,0.04030286964260091
+binary__Displaced,0.03757542792019243,0.03757542792019243
+categories__Mother's occupation_Personal care workers and the like,-0.03633698723372176,0.03633698723372176
+categories__Mother's qualification_Basic education 1st cycle (4th/5th year) or equiv.,-0.03397533116422488,0.03397533116422488
+categories__Father's qualification_2nd cycle of the general high school course,0.03342566713882545,0.03342566713882545
+categories__Father's occupation_Armed Forces Officers,-0.03094972843432279,0.03094972843432279
+"categories__Father's occupation_Data, accounting, statistical, financial services and registry-related operators",-0.027673735517480615,0.027673735517480615
+categories__Father's qualification_Supplementary Accounting and Administration,0.02765030977385831,0.02765030977385831
+categories__Father's qualification_Higher Education - Degree,-0.027339857392768924,0.027339857392768924
+categories__Course_Management (evening attendance),-0.02593375810538065,0.02593375810538065
+categories__Father's occupation_Protection and security services personnel,-0.0252019930440846,0.0252019930440846
+categories__Previous qualification_Higher education - degree,0.025019672921251367,0.025019672921251367
+categories__Father's occupation_Specialists in Intellectual and Scientific Activities,-0.022387557478256367,0.022387557478256367
+categories__Previous qualification_Frequency of higher education,0.021780604479405226,0.021780604479405226
+categories__Father's occupation_Street vendors (except food) and street service providers,-0.015111677830462722,0.015111677830462722
+categories__Previous qualification_Higher education - doctorate,0.012935369521284117,0.012935369521284117
+categories__Previous qualification_Professional higher technical course,-0.009851549997572297,0.009851549997572297
+categories__Father's occupation_Skilled workers in electricity and electronics,-0.009506356659365502,0.009506356659365502
+categories__Course_Communication Design,-0.0012929092835227943,0.0012929092835227943
+categories__Mother's qualification_Can read without having a 4th year of schooling,0.0009584549848218208,0.0009584549848218208
