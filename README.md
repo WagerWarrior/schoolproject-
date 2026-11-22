@@ -48,6 +48,7 @@ python 12_try_tree_depth5.py
 python 13_try_tree_depth7.py
 python 14_tune_logistic_c.py
 python 15_tune_forest_leaf.py
+python 16_compare_cutoffs.py
 ```
 
 The preview scripts explain preprocessing; their fitted transformations must
@@ -143,6 +144,26 @@ Leaf size 1 retains the highest mean F1 at cutoff 0.5 for both input sets.
 Larger leaves improved precision but reduced recall. They did not improve all
 metrics together. These tuning results do not establish final test performance.
 See `results/forest_leaf_summary.csv` for all metrics and fold variation.
+
+## Validation cutoff comparison
+
+We compared score cutoffs 0.3, 0.4, 0.5 and 0.6 using saved out-of-fold
+logistic predictions: A with C=10 and B with C=1. No retraining or test data.
+These are separately tuned candidates; their differences do not isolate the
+feature effect as strictly as the earlier matched-setting A/B comparisons.
+
+| B cutoff | Mean precision | Mean recall | Mean F1 | Caught dropouts | False alarms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0.3 | 0.666 | 0.779 | 0.718 | 886 | 445 |
+| 0.4 | 0.735 | 0.696 | 0.714 | 791 | 288 |
+| 0.5 | 0.798 | 0.627 | 0.702 | 713 | 181 |
+| 0.6 | 0.845 | 0.565 | 0.677 | 642 | 119 |
+
+Lower cutoffs flag more students, catching more dropouts and creating more false
+alarms. Cutoff 0.3 has the highest mean F1 in this limited grid, but the error
+trade-off needs justification before selection. No final cutoff is locked.
+ROC-AUC, average precision and PR-AUC are unchanged because scores are unchanged.
+See `results/cutoff_comparison.csv` for both candidates and all counts.
 
 ## Limitations
 

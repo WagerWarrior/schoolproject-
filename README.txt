@@ -98,3 +98,8 @@ FOREST LEAF-SIZE COMPARISON
 Run .venv/bin/python 15_tune_forest_leaf.py. Compares minimum leaf sizes 1,5,10
 with 100 trees, identical folds and cutoff 0.5. See Learning Notes.txt and
 results/forest_leaf_summary.csv. Raw predictions remain local.
+
+CUTOFF COMPARISON
+Run .venv/bin/python 16_compare_cutoffs.py after step 14. Uses saved validation
+scores only, no retraining. No final threshold selected. See Learning Notes.txt
+and results/cutoff_comparison.csv.

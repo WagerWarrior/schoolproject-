@@ -219,3 +219,38 @@ The leaf-1 scores reproduce the original forest results. No final model chosen.
 All three model families now have a small settings comparison. Logistic B C=1
 still leads on mean F1 among the evaluated candidates at cutoff 0.5. Next is
 reviewing validation cutoff trade-offs before locking the final configuration.
+
+PREDICTION CUTOFFS — STEP 16
+A cutoff is the score required to predict dropout. If a student has score 0.42,
+cutoff 0.5 predicts other outcome, while cutoff 0.4 predicts dropout. The score
+and model weights have not changed. We are changing the decision rule only.
+Scores are not guaranteed to be calibrated individual probabilities.
+
+We compared cutoffs 0.3, 0.4, 0.5 and 0.6 on saved out-of-fold predictions for
+logistic A C=10 and B C=1. These are the current logistic candidates. No model
+was retrained and no test data loaded. Metrics are averaged over the same five
+folds; counts are summed across folds. Each row had been scored by a model that
+did not train on it. Reusing these validation results for tuning means they are
+not independent final estimates of performance; the reserved test set is still needed.
+
+B results (C=1):
+Cutoff   Precision   Recall    F1       Caught   Missed   False alarms
+0.3      0.6664      0.7793    0.7181   886      251      445
+0.4      0.7346      0.6957    0.7141   791      346      288
+0.5      0.7983      0.6271    0.7017   713      424      181
+0.6      0.8445      0.5647    0.6765   642      495      119
+
+Compared with 0.5, cutoff 0.3 catches 173 additional dropouts but makes 264
+additional false alarms. Cutoff 0.4 catches 78 more with 107 more false alarms.
+The highest mean F1 among these four is 0.3, but this is not automatically the
+best practical choice. We need to justify the balance between missed students
+and false alarms. We have not locked a final cutoff or evaluated the test group.
+A C=10 also had its highest tested F1 at 0.3: 0.5747, with 777 caught dropouts
+and 792 false alarms. A/B now have different C settings, so this is a candidate
+comparison; use earlier matched settings when isolating the effect of new inputs.
+
+ROC-AUC, PR-AUC and average precision use the scores across cutoffs, so changing
+this one classification cutoff does not change those metrics. F1, precision,
+recall, accuracy and confusion-matrix counts can change.
+Next: review these trade-offs and specify the final model/cutoff selection rule
+before evaluating the reserved test set. No automatic real-student decisions.
