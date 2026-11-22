@@ -382,3 +382,10 @@ setup instructions and aggregate outputs. It excludes raw data and fitted models
 The first version implements model comparisons, global feature explanations and
 fictional-profile predictions. Cohort filters and per-profile contributions are
 not implemented yet. Fairness analysis and the final report are still outstanding.
+
+
+Step 20 — Walk through the dashboard with Alex (fictional)
+Open the app and choose Try a made-up profile. Keep the default profile: age 20, Nursing, secondary education, first-phase general admission, application order 1, daytime, not displaced. Parent qualifications are Unknown and occupations Not specified (source blank). Semester one: 0 credited, 6 enrolled, 6 assessment attempts, 4 passed, 0 without assessments, grade 12/20.
+Click Calculate example score: 0.400 (unrounded 0.3996734). The saved encoder and scaler turn inputs into model-ready numbers; the trained logistic model returns a score. At or above 0.3 is assigned Dropout. This is not a confirmed 40% probability or a prediction of Alex's future.
+Change only courses passed to 6 and calculate again: 0.117 (unrounded 0.1169080), below 0.3, so Other outcome. This demonstrates model behavior with other inputs held fixed, not causation.
+Design refinement: retained the existing blue identity and three-page navigation; tightened headings and spacing, paired numeric fields, added numbered walkthrough and result explanation, horizontal importance chart, and empty model-selection guidance. Model and cutoff unchanged. Functional checks passed, including direct prediction agreement for both fictional cases and invalid counts. Full desktop/mobile visual review remains incomplete because the browser was actively being used.

@@ -282,3 +282,7 @@ describe associations, not causes. Application order has a documented source
 ambiguity. Parental information can act as a socioeconomic proxy and requires
 fairness review. This is an educational project, not a system for real student
 admission, funding or intervention decisions.
+
+### Guided fictional example
+
+On **Try a made-up profile**, keep the defaults and calculate: score **0.400**, above the **0.3** cutoff. Change only **Courses passed** from 4 to 6: score **0.117**, below the cutoff. These illustrate model behavior, not calibrated probabilities or causal effects. The in-app walkthrough explains each step. Styling is in `app.css`.

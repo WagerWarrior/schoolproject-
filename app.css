@@ -1,0 +1,24 @@
+<style>
+:root { --ink: #183344; --accent: #245b78; --muted: #506575; --line: #d7e1e7; }
+.stMainBlockContainer { max-width: 1120px; padding: 2.5rem 3rem 4rem; }
+h1 { font-size: 2.25rem !important; letter-spacing: -.025em; color: var(--ink); }
+h2 { font-size: 1.5rem !important; letter-spacing: -.02em; color: var(--ink); }
+h3 { font-size: 1.15rem !important; color: var(--ink); }
+[data-testid="stCaptionContainer"] { color: var(--muted); }
+[data-testid="stSidebar"] { border-right: 1px solid var(--line); }
+[data-testid="stSidebar"] h1 { font-size: 1.35rem !important; }
+[data-testid="stSidebar"] [role="radiogroup"] { gap: .65rem; }
+[data-testid="stForm"] { border-color: var(--line); padding: 1.5rem; border-radius: 12px; }
+[data-testid="stMetric"] { padding: .75rem 0; border-bottom: 1px solid var(--line); }
+[data-testid="stMetricValue"] { font-variant-numeric: tabular-nums; font-size: 2rem; color: var(--accent); }
+[data-testid="stMarkdownContainer"] p { max-width: 74ch; }
+input { caret-color: var(--accent); }
+::selection { background: #d4e9f3; color: #183344; }
+a { text-underline-offset: .2em; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 760px) {
+ .stMainBlockContainer { padding: 1.5rem 1rem 3rem; }
+ h1 { font-size: 1.85rem !important; }
+ [data-testid="stForm"] { padding: 1rem; }
+}
+</style>
