@@ -84,3 +84,8 @@ evaluation remain to do. See README.md and Learning Notes.txt for results.
 DEPTH-5 COMPARISON
 Run .venv/bin/python 12_try_tree_depth5.py after step 10. Depth-3 results remain
 unchanged. See results/tree_depth_comparison.csv and Learning Notes.txt.
+
+DEPTH 7
+Run .venv/bin/python 13_try_tree_depth7.py after steps 10 and 12.
+Current repository: https://github.com/WagerWarrior/schoolproject-
+Depth 5 remains best tested for B by mean validation F1. Test remains reserved.

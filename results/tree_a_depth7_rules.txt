@@ -1,0 +1,181 @@
+|--- numeric_and_binary__Age at enrollment <= 22.50
+|   |--- categories__Course_Nursing <= 0.50
+|   |   |--- categories__Mother's qualification_Unknown <= 0.50
+|   |   |   |--- categories__Course_Social Service <= 0.50
+|   |   |   |   |--- categories__Application mode_1st phase - general contingent <= 0.50
+|   |   |   |   |   |--- categories__Course_Veterinary Nursing <= 0.50
+|   |   |   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- categories__Course_Veterinary Nursing >  0.50
+|   |   |   |   |   |   |--- categories__Mother's occupation_Student <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Mother's occupation_Student >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Application mode_1st phase - general contingent >  0.50
+|   |   |   |   |   |--- numeric_and_binary__Application order <= 4.50
+|   |   |   |   |   |   |--- categories__Father's qualification_Technical-professional course <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's qualification_Technical-professional course >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- numeric_and_binary__Application order >  4.50
+|   |   |   |   |   |   |--- categories__Mother's qualification_Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv. <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Mother's qualification_Basic Education 3rd Cycle (9th/10th/11th Year) or Equiv. >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- categories__Course_Social Service >  0.50
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers <= 0.50
+|   |   |   |   |   |--- categories__Father's qualification_7th Year (Old) <= 0.50
+|   |   |   |   |   |   |--- categories__Father's qualification_Higher Education - Bachelor's Degree <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's qualification_Higher Education - Bachelor's Degree >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Father's qualification_7th Year (Old) >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers >  0.50
+|   |   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. <= 0.50
+|   |   |   |   |   |   |--- categories__Father's occupation_Armed Forces Professions <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's occupation_Armed Forces Professions >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- categories__Mother's qualification_Unknown >  0.50
+|   |   |   |--- categories__Mother's occupation_Administrative staff <= 0.50
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |   |   |--- categories__Father's qualification_7th year of schooling <= 0.50
+|   |   |   |   |   |   |--- categories__Application mode_1st phase - general contingent <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- categories__Application mode_1st phase - general contingent >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Father's qualification_7th year of schooling >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- categories__Mother's occupation_Administrative staff >  0.50
+|   |   |   |   |--- class: 0
+|   |--- categories__Course_Nursing >  0.50
+|   |   |--- categories__Mother's occupation_Other Situation <= 0.50
+|   |   |   |--- categories__Father's qualification_Unknown <= 0.50
+|   |   |   |   |--- categories__Father's qualification_Technological specialization course <= 0.50
+|   |   |   |   |   |--- categories__Mother's qualification_Higher Education - Degree <= 0.50
+|   |   |   |   |   |   |--- numeric_and_binary__Application order <= 4.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- numeric_and_binary__Application order >  4.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- categories__Mother's qualification_Higher Education - Degree >  0.50
+|   |   |   |   |   |   |--- numeric_and_binary__Application order <= 2.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- numeric_and_binary__Application order >  2.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Father's qualification_Technological specialization course >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Father's qualification_Unknown >  0.50
+|   |   |   |   |--- class: 1
+|   |   |--- categories__Mother's occupation_Other Situation >  0.50
+|   |   |   |--- categories__Application mode_1st phase - general contingent <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- categories__Application mode_1st phase - general contingent >  0.50
+|   |   |   |   |--- class: 1
+|--- numeric_and_binary__Age at enrollment >  22.50
+|   |--- categories__Father's qualification_Unknown <= 0.50
+|   |   |--- categories__Course_Social Service (evening attendance) <= 0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 24.50
+|   |   |   |   |--- categories__Course_Nursing <= 0.50
+|   |   |   |   |   |--- categories__Father's occupation_Personal Services, Security and Safety Workers and Sellers <= 0.50
+|   |   |   |   |   |   |--- categories__Father's occupation_Unskilled workers in extractive industry, construction, manufacturing and transport <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's occupation_Unskilled workers in extractive industry, construction, manufacturing and transport >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- categories__Father's occupation_Personal Services, Security and Safety Workers and Sellers >  0.50
+|   |   |   |   |   |   |--- categories__Course_Tourism <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Course_Tourism >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Nursing >  0.50
+|   |   |   |   |   |--- categories__Father's qualification_Higher Education - Master's <= 0.50
+|   |   |   |   |   |   |--- categories__Father's occupation_Specialists in Intellectual and Scientific Activities <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Father's occupation_Specialists in Intellectual and Scientific Activities >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Father's qualification_Higher Education - Master's >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- numeric_and_binary__Age at enrollment >  24.50
+|   |   |   |   |--- categories__Course_Equinculture <= 0.50
+|   |   |   |   |   |--- categories__Previous qualification_Basic education 3rd cycle (9th/10th/11th year) or equiv. <= 0.50
+|   |   |   |   |   |   |--- numeric_and_binary__Application order <= 1.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- numeric_and_binary__Application order >  1.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Previous qualification_Basic education 3rd cycle (9th/10th/11th year) or equiv. >  0.50
+|   |   |   |   |   |   |--- categories__Mother's occupation_Unskilled Workers <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- categories__Mother's occupation_Unskilled Workers >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Course_Equinculture >  0.50
+|   |   |   |   |   |--- categories__Application mode_Change of course <= 0.50
+|   |   |   |   |   |   |--- categories__Mother's occupation_Specialists in Intellectual and Scientific Activities <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- categories__Mother's occupation_Specialists in Intellectual and Scientific Activities >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- categories__Application mode_Change of course >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |--- categories__Course_Social Service (evening attendance) >  0.50
+|   |   |   |--- categories__Application mode_Holders of other higher courses <= 0.50
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers <= 0.50
+|   |   |   |   |   |--- categories__Application mode_3rd phase - general contingent <= 0.50
+|   |   |   |   |   |   |--- categories__Mother's occupation_Other Situation <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Mother's occupation_Other Situation >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- categories__Application mode_3rd phase - general contingent >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- categories__Mother's occupation_Installation and Machine Operators and Assembly Workers >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- categories__Application mode_Holders of other higher courses >  0.50
+|   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. <= 0.50
+|   |   |   |   |   |--- categories__Previous qualification_Higher education - master (2nd cycle) <= 0.50
+|   |   |   |   |   |   |--- categories__Father's occupation_Skilled Workers in Industry, Construction and Craftsmen <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- categories__Father's occupation_Skilled Workers in Industry, Construction and Craftsmen >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- categories__Previous qualification_Higher education - master (2nd cycle) >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- categories__Father's qualification_Basic education 1st cycle (4th/5th year) or equiv. >  0.50
+|   |   |   |   |   |--- class: 0
+|   |--- categories__Father's qualification_Unknown >  0.50
+|   |   |--- categories__Application mode_Change of course <= 0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 54.50
+|   |   |   |   |--- numeric_and_binary__Displaced <= 0.50
+|   |   |   |   |   |--- numeric_and_binary__Daytime/evening attendance <= 0.50
+|   |   |   |   |   |   |--- numeric_and_binary__Age at enrollment <= 46.00
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- numeric_and_binary__Age at enrollment >  46.00
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- numeric_and_binary__Daytime/evening attendance >  0.50
+|   |   |   |   |   |   |--- categories__Course_Advertising and Marketing Management <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- categories__Course_Advertising and Marketing Management >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- numeric_and_binary__Displaced >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- numeric_and_binary__Age at enrollment >  54.50
+|   |   |   |   |--- class: 0
+|   |   |--- categories__Application mode_Change of course >  0.50
+|   |   |   |--- numeric_and_binary__Age at enrollment <= 26.00
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric_and_binary__Age at enrollment >  26.00
+|   |   |   |   |--- numeric_and_binary__Age at enrollment <= 28.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- numeric_and_binary__Age at enrollment >  28.50
+|   |   |   |   |   |--- numeric_and_binary__Age at enrollment <= 33.50
+|   |   |   |   |   |   |--- categories__Previous qualification_Frequency of higher education <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Previous qualification_Frequency of higher education >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- numeric_and_binary__Age at enrollment >  33.50
+|   |   |   |   |   |   |--- categories__Course_Advertising and Marketing Management <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- categories__Course_Advertising and Marketing Management >  0.50
+|   |   |   |   |   |   |   |--- class: 1
