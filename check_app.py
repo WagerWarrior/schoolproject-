@@ -11,6 +11,8 @@ assert not app.exception
 assert [item.value for item in app.metric] == ['81.0%', '68.4%', '76.1%', '0.720']
 app.multiselect[0].set_value(['Logistic A', 'Logistic B']).run()
 assert not app.exception
+app.multiselect[0].set_value([]).run()
+assert not app.exception and app.info[0].value == 'Choose at least one model to see the comparison.'
 app.sidebar.radio[0].set_value('What mattered').run()
 app.slider[0].set_value(17).run()
 assert not app.exception

@@ -1,0 +1,38 @@
+APP AND SETUP VERIFICATION — November 25, 2026
+
+What was checked
+- In-app browser at 1365 x 1000 and 390 x 844: Results, What mattered,
+  and the fictional profile form. Mobile sidebar navigation and form submission worked.
+- The form stacks into one column on narrow screens. Wide tables scroll horizontally.
+- Empty model selection shows a helpful message instead of an empty chart.
+- Importance slider supports 3 through 17 inputs; keyboard Home/End and arrows worked.
+- Alex defaults: score 0.3996734008625352, classified Dropout at cutoff 0.3.
+- Only courses passed changed to 6: score 0.11690804059648417, Other outcome.
+- Courses passed set to 7 with 6 enrolled: error shown and no result displayed.
+- check_app.py verifies the form scores against the saved pipeline and the cutoff,
+  plus navigation, empty selection and invalid counts.
+
+Fixes
+- Importance chart/table now use plain labels such as Courses passed and Degree program.
+  Full chart labels are retained on narrow screens instead of repeated Curricular units….
+- Increased top spacing so the page title clears the fixed toolbar.
+- Updated the limitations text to acknowledge the completed descriptive subgroup review.
+- Added the empty-selection case to check_app.py. No classifier settings changed.
+
+Separate clean setup
+- Copied tracked source files into a temporary directory with a new Python 3.12 venv.
+- Installed requirements.txt without using the project's existing site-packages.
+- Used a copy of the existing assigned data/raw/dataset.csv; did not redownload Kaggle.
+- Before rebuilding, checked that the missing-model page warns clearly without crashing.
+- Successfully ran 01, 02, 03, 04, 19 and check_app.py. pip check found no broken requirements.
+- Final test metrics remained byte-for-byte unchanged. Script 17 was not run.
+- Initial one-off missing-model test hit AppTest's default 3-second startup timeout;
+  it passed with the project's usual 30-second allowance.
+
+Limits and follow-up
+- This is a focused functional/responsive review, not a full WCAG certification or
+  cross-browser/physical-phone test. Streamlit tables need horizontal scrolling on mobile.
+- Confirm a fresh Kaggle download and setup on a team member's own machine.
+- Sync the report draft with this verification; collect actual member contributions,
+  attach approved intake/dictionary documents, and prepare the presentation.
+- Cohort filtering and individual profile contributions remain proposal scope gaps.

@@ -62,7 +62,8 @@ if page == 'Results':
         st.write('No dropout dates are available, so this is retrospective classification, '
                  'not a validated prediction of future dropout after semester one. '
                  'Results may not generalize to other institutions. Parental information '
-                 'may reflect socioeconomic differences; subgroup fairness review remains needed.')
+                 'may reflect socioeconomic differences. Our validation subgroup review found unequal '
+                 'error rates; independent fairness evaluation remains needed.')
 
 # Display the saved shuffling experiment: larger performance drops mean more reliance.
 elif page == 'What mattered':
@@ -72,7 +73,35 @@ elif page == 'What mattered':
     importance = pd.read_csv(folder / 'results/column_importance_summary.csv', index_col='column')
     count = st.slider('Number of columns to show', 3, 17, 6)
     top = importance.head(count).rename(columns={'mean': 'Average precision drop', 'std': 'Variation'})
-    st.bar_chart(top[['Average precision drop']], horizontal=True, sort=False, color='#245b78')
+    # Use readable labels so similar source names do not become identical shortened labels.
+    names = {
+        'Curricular units 1st sem (approved)': 'Courses passed',
+        'Curricular units 1st sem (enrolled)': 'Courses enrolled',
+        'Curricular units 1st sem (credited)': 'Courses credited',
+        'Curricular units 1st sem (without evaluations)': 'No assessments',
+        'Curricular units 1st sem (grade)': 'Average grade',
+        'Curricular units 1st sem (evaluations)': 'Assessment attempts',
+        'Course': 'Degree program', 'Application mode': 'Admission route',
+        "Mother's qualification": "Mother's education",
+        "Father's qualification": "Father's education",
+        'Daytime/evening attendance': 'Attendance',
+        'Previous qualification': 'Previous education',
+        'Application order': 'Preference order', 'Displaced': 'Away from home',
+    }
+    top = top.rename(index=names)
+    top.index.name = 'Input'
+    # Reserve room for full labels on narrow screens; tooltips retain exact values.
+    st.vega_lite_chart(top.reset_index(), {
+        'mark': {'type': 'bar', 'color': '#245b78'},
+        'height': count * 28,
+        'encoding': {
+            'y': {'field': 'Input', 'type': 'nominal', 'sort': top.index.tolist(),
+                  'axis': {'title': None, 'labelLimit': 180, 'labelOverlap': False}},
+            'x': {'field': 'Average precision drop', 'type': 'quantitative',
+                  'axis': {'title': 'Average precision drop', 'tickCount': 4}},
+            'tooltip': [{'field': 'Input'}, {'field': 'Average precision drop', 'format': '.4f'}],
+        },
+    }, use_container_width=True)
     st.dataframe(top.round(4))
     st.write('Courses passed stood out most. Its negative model weight means more passed '
              'courses lowers the dropout score when the other inputs stay fixed.')

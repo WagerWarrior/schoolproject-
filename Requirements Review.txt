@@ -53,12 +53,14 @@ held-out A/B comparison. Explicitly document this departure from the proposal.
 Keep the locked model unchanged; do not optimize against the completed test results.
 
 5. APPLICATION AND USER INTERFACE — 20 points
-Status: basic required functionality implemented; usability verification unfinished.
+Status: basic required functionality implemented; desktop/mobile walkthrough completed November 25.
+Evidence and remaining test limits: App Verification.txt.
 Evidence: app.py, app.css, .streamlit/config.toml and check_app.py.
 The brief requires useful interaction such as cohort filtering OR a sample prediction.
 The fictional profile form meets that type of interaction; both examples are not mandatory.
-Finish: check the complete experience at desktop and narrow widths, readable chart
-labels, empty selections, validation errors, and the missing-model setup message.
+Checked: desktop (1365px) and narrow (390px) views, readable importance labels,
+empty selections, invalid course counts, and the missing-model setup message.
+Wide data tables retain horizontal scrolling on mobile.
 Keep explanations understandable for a nontechnical audience.
 
 6. TEAM CONTRIBUTION SELF-ASSESSMENT — 5 points
@@ -69,10 +71,11 @@ Finish: collect each person's own factual account and allocate presentation sect
 Do not invent contributions or imply AI-assisted code was independently authored.
 
 7. CODE AND REPRODUCIBILITY — 10 points
-Status: pipeline, dependencies and setup instructions exist; clean-environment check pending.
+Status: separate clean Python 3.12 environment passed installation, steps 01–04,
+step 19, app checks and pip check on November 25.
 Evidence: requirements.txt, README.md, numbered scripts and check_app.py.
-Finish: verify setup from a separate clean environment, the assigned data download,
-steps 01–04 and 19, and the app checks. Add understandable comments to meaningful
+Remaining: verify the assigned dataset download on a team member's machine.
+The clean check used our existing assigned CSV copy, not a new Kaggle download. Add understandable comments to meaningful
 blocks; keep ordinary pandas/scikit-learn code instead of unnecessary abstractions.
 Code Guide.txt gives the reading order and definitions.
 Never delete or overwrite the completed final evaluation just to run setup.
@@ -92,8 +95,9 @@ PROPOSAL COMMITMENTS / QUALITY IMPROVEMENTS (not separate mandatory rubric items
 RECOMMENDED WORK ORDER
 1. Assemble the report outline and select its existing EDA/model evidence.
 2. Review the completed subgroup analysis and ethics discussion with the team.
-3. Finish app usability checks and resolve unfulfilled proposal features with the team.
-4. Test fresh setup and package the approved intake, dictionary, report and runnable project.
+3. Resolve unfulfilled proposal features with the team; app walkthrough checks passed.
+4. Update the report draft with App Verification.txt findings and package the approved
+   intake, dictionary, report and runnable project. Fresh setup passed with the existing CSV.
 5. Add actual member contributions and rehearse the final presentation.
 
 TECHNICAL RULES VERIFIED

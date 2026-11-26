@@ -36,7 +36,8 @@ Streamlit form and test APIs follow the official documentation:
 
 The app is a simple first version. Cohort filtering and per-profile feature
 contributions from the proposal are not implemented yet. A descriptive subgroup review and a Word report draft are now available; team
-contributions, final packaging and usability/setup checks remain before submission.
+contributions and final packaging remain before submission. Desktop/mobile walkthrough
+and a separate clean-environment setup passed; see `App Verification.txt` for scope.
 
 ## Current status: final B model evaluated
 
@@ -124,7 +125,7 @@ python 16_compare_cutoffs.py
 
 After locking the model settings, the final evaluation was run with
 `python 17_evaluate_final_model.py`. Read the saved results rather than rerunning
-it to guide further tuning. The application is built; the final report remains to do.
+it to guide further tuning. The application is built; the final report draft still needs team review and completion.
 
 After the final artifact exists, `python 18_explain_model.py` explains weights
 and original-column importance using training-only folds. It does not rerun
@@ -306,4 +307,5 @@ This post-selection validation review does not establish fairness or causation.
 `report/Student Dropout Report Draft.docx` covers the three methods, EDA, preparation,
 validation, final testing, interpretation, subgroup review, app and limitations.
 The report includes the existing EDA plot. Add actual team contributions and approved
-intake/dictionary documents, and complete app/setup checks before submission.
+intake/dictionary documents, and update the draft with the completed checks in
+`App Verification.txt` before submission.

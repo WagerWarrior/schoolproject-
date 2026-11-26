@@ -1,6 +1,6 @@
 <style>
 :root { --ink: #183344; --accent: #245b78; --muted: #506575; --line: #d7e1e7; }
-.stMainBlockContainer { max-width: 1120px; padding: 2.5rem 3rem 4rem; }
+.stMainBlockContainer { max-width: 1120px; padding: 4rem 3rem 4rem; }
 h1 { font-size: 2.25rem !important; letter-spacing: -.025em; color: var(--ink); }
 h2 { font-size: 1.5rem !important; letter-spacing: -.02em; color: var(--ink); }
 h3 { font-size: 1.15rem !important; color: var(--ink); }
@@ -17,7 +17,7 @@ input { caret-color: var(--accent); }
 a { text-underline-offset: .2em; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 760px) {
- .stMainBlockContainer { padding: 1.5rem 1rem 3rem; }
+ .stMainBlockContainer { padding: 4rem 1rem 3rem; }
  h1 { font-size: 1.85rem !important; }
  [data-testid="stForm"] { padding: 1rem; }
 }
