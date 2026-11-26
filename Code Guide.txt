@@ -25,6 +25,8 @@ preprocessing.py: build fresh preparation steps for use inside model training.
     read results/final_test_metrics.json rather than rerunning it for tuning.
 18_explain_model.py: examine model weights and validation permutation importance.
 19_build_app_model.py: rebuild a missing app model using training rows only.
+20_review_subgroup_errors.py: count subgroup mistakes from saved validation scores;
+    withhold results that have too few supporting examples.
 app.py: show saved results and score a fictional profile with the saved model.
 check_app.py: verify page controls, example scores, cutoff and invalid inputs.
 app.css: shared appearance rules; it does not affect predictions.

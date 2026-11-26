@@ -35,8 +35,8 @@ Streamlit form and test APIs follow the official documentation:
 [AppTest](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest).
 
 The app is a simple first version. Cohort filtering and per-profile feature
-contributions from the proposal are not implemented yet. Fairness analysis and
-the final report also remain to do; this is not the complete final submission.
+contributions from the proposal are not implemented yet. A descriptive subgroup review and a Word report draft are now available; team
+contributions, final packaging and usability/setup checks remain before submission.
 
 ## Current status: final B model evaluated
 
@@ -291,3 +291,19 @@ admission, funding or intervention decisions.
 ### Guided fictional example
 
 On **Try a made-up profile**, keep the defaults and calculate: score **0.400**, above the **0.3** cutoff. Change only **Courses passed** from 4 to 6: score **0.117**, below the cutoff. These illustrate model behavior, not calibrated probabilities or causal effects. The in-app walkthrough explains each step. Styling is in `app.css`.
+
+## Subgroup review and report draft
+
+Run `python 20_review_subgroup_errors.py` after steps 01–04 and 14. It uses saved
+validation scores for B, C=1 and reapplies cutoff 0.3. It does not retrain or load
+test predictions. The output is `results/subgroup_validation_summary.csv`.
+Groups below 30 students have outcome counts/rates withheld; rates with denominators
+below 20 are blank. These are reporting choices, not guarantees of reliability or privacy.
+Binary audit groups retain source codes pending confirmation of descriptive labels.
+Gender code 0/1 false-positive rates were 15.2%/26.9%, with recall 73.2%/82.9%.
+This post-selection validation review does not establish fairness or causation.
+
+`report/Student Dropout Report Draft.docx` covers the three methods, EDA, preparation,
+validation, final testing, interpretation, subgroup review, app and limitations.
+The report includes the existing EDA plot. Add actual team contributions and approved
+intake/dictionary documents, and complete app/setup checks before submission.

@@ -395,3 +395,11 @@ November 25 — Working toward the final submission
 The official rubric gives 20 points each to the report, modelling/evaluation, and app; 15 to EDA; 10 each to preprocessing and reproducibility; and 5 to member contributions. These are available points, not an estimated grade.
 The main remaining work is explaining and packaging the evidence, not making the model more complicated. The app already meets the basic interaction requirement through a fictional profile form. Cohort filtering and individual contributions to the score are additional proposal commitments, not separately mandated features in the brief.
 Code comments explain meaningful blocks and why we use them. X means inputs, y means actual outcomes, fit means learn, predict_proba returns scores, and the cutoff converts those scores to labels. We checked that the comment changes leave the Python syntax trees unchanged.
+
+
+November 25 — Subgroup errors and report draft
+We already trained THREE classification methods: logistic regression, decision tree and random forest, each with A and B inputs. The dummy baseline is an additional comparison.
+Step 20 loads saved B C=1 validation scores, matches rows to their original audit attributes, and applies our locked 0.3 cutoff. It counts false alarms among actual other outcomes and missed dropouts among actual dropouts. No model was retrained or test data reevaluated.
+Gender source code 0: 262 false alarms / 1722 other outcomes = 15.2%; recall 426/582 = 73.2%. Code 1: 183/680 = 26.9%; recall 460/555 = 82.9%. These differences show unequal observed error rates, not their cause. Codes are retained until descriptive binary labels are verified.
+Groups below 30 students have outcome counts/rates withheld; rates with denominators below 20 are blank. These rules do not establish reliability or privacy. This is descriptive post-selection validation analysis, not fairness certification.
+An editable report draft includes all three methods, the EDA figure, final results and limitations. Team contribution statements, approved intake/dictionary attachment, clean setup verification and final app checks remain.
