@@ -21,6 +21,7 @@ def make_encoder(model='B'):
         raise ValueError('model must be A or B')
     plan = json.loads((ROOT / 'feature_plan.json').read_text())
     selected = plan[f'model_{model.lower()}_columns']
+    # Keep fields that are not categories in their original numerical form.
     other = [c for c in selected if c not in CATEGORY_COLUMNS]
     return ColumnTransformer([
         ('categories', OneHotEncoder(handle_unknown='ignore', sparse_output=True), CATEGORY_COLUMNS),
@@ -36,6 +37,7 @@ def make_preprocessor(model='B'):
     plan = json.loads((ROOT / 'feature_plan.json').read_text())
     selected = plan[f'model_{model.lower()}_columns']
     binary_columns = ['Daytime/evening attendance', 'Displaced']
+    # Scale numerical measurements, but leave the existing yes/no codes as 0 and 1.
     numeric_columns = [column for column in selected
                        if column not in CATEGORY_COLUMNS + binary_columns]
 

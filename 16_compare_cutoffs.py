@@ -8,6 +8,7 @@ saved = pd.read_csv(folder / 'results/logistic_c_validation_predictions.csv')
 # Current logistic candidates from the small C comparison.
 settings = {'A': 10, 'B': 1}
 results = []
+# Compare A and B separately using their saved validation scores.
 for version, C in settings.items():
     rows = saved[(saved['version'] == version) & (saved['C'] == C)]
     for cutoff in [0.3, 0.4, 0.5, 0.6]:
@@ -34,6 +35,7 @@ keys = ['version', 'C', 'cutoff']
 metrics = ['accuracy', 'precision', 'recall', 'F1']
 results.groupby(keys)[metrics].agg(['mean', 'std']).to_csv(output / 'cutoff_summary.csv')
 counts = ['true_negative', 'false_alarm', 'missed_dropout', 'caught_dropout']
+# Average fold metrics, but add student counts across folds.
 comparison = results.groupby(keys)[metrics].mean().join(results.groupby(keys)[counts].sum())
 comparison.to_csv(output / 'cutoff_comparison.csv')
 print('Mean five-fold validation metrics and combined validation counts:')

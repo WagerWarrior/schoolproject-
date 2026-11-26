@@ -75,9 +75,10 @@ The sections below document earlier experiments and their decisions at the time.
 ITEC 3040 course project comparing enrollment information (A) with enrollment
 plus first-semester results (B). Dropout is 1; Enrolled and Graduate are 0.
 
-The project currently includes data checks, training-only exploration, one-hot
-encoding, scaling, a dummy baseline, logistic regression and shallow decision
-trees and random forests. Tuning, final test evaluation and the app remain to do.
+The project includes data checks, training-only exploration, encoding, scaling,
+a baseline, three classification methods, tuning, the final B evaluation,
+model interpretation, and a local Streamlit app. See Requirements Review.txt
+for the remaining submission work and Code Guide.txt for a simple reading order.
 
 ## Setup
 
@@ -123,7 +124,7 @@ python 16_compare_cutoffs.py
 
 After locking the model settings, the final evaluation was run with
 `python 17_evaluate_final_model.py`. Read the saved results rather than rerunning
-it to guide further tuning. The application and final report remain to do.
+it to guide further tuning. The application is built; the final report remains to do.
 
 After the final artifact exists, `python 18_explain_model.py` explains weights
 and original-column importance using training-only folds. It does not rerun
@@ -163,7 +164,10 @@ The preview scripts explain preprocessing; their fitted transformations must
 not be reused for cross-validation. The training scripts fit new pipelines
 within each training fold.
 
-## Evaluation
+## Initial validation experiments (historical)
+
+These bullets describe the initial experiments, before tuning and final testing.
+The completed final evaluation is documented at the top of this README.
 
 - Stratified 80/20 split, seed 42: 3,539 training students and 885 test students.
 - Identical five-fold training-only validation for A and B.
@@ -269,7 +273,8 @@ feature effect as strictly as the earlier matched-setting A/B comparisons.
 
 Lower cutoffs flag more students, catching more dropouts and creating more false
 alarms. Cutoff 0.3 has the highest mean F1 in this limited grid, but the error
-trade-off needs justification before selection. No final cutoff is locked.
+trade-off needed justification before selection. We subsequently locked 0.3;
+see the final model section above for the completed evaluation.
 ROC-AUC, average precision and PR-AUC are unchanged because scores are unchanged.
 See `results/cutoff_comparison.csv` for both candidates and all counts.
 

@@ -1,0 +1,99 @@
+ITEC 3040 — FINAL SUBMISSION REQUIREMENTS REVIEW
+Checked November 25, 2026 against the live eClass updated-v2 project brief, pages 1, 3 and 4.
+Source: https://eclass.yorku.ca/mod/resource/view.php?id=4550502
+Final submission: December 1, 2026. Presentations: December 2, 2026.
+These are the brief's dates; check the submission page for the exact time and any later announcements.
+
+The brief labels its rubric SUGGESTED. Points below are available marks, not a predicted grade.
+An A+ cannot be guaranteed. The practical goal is complete, correct, clearly explained evidence.
+
+1. REPORT CLARITY AND DATASET DESCRIPTION — 20 points
+Status: partial. Proposal/intake and dictionary documents exist outside this repository;
+a completed final report is not present in the repository.
+Evidence: README.md; feature_plan.json; resources/verified_code_mappings.json;
+parent-folder ITEC_3040_Submission_With_Data_Dictionary.docx.
+Finish: include the approved intake and complete dictionary in the final submission.
+Write the final report around the question, data, methods, findings, limitations,
+ethics and future work, with evidence cited for every claim. Confirm the document
+version with the team rather than treating local drafts as submitted documents.
+Explain that the brief describes 37 columns but the actual assigned downloaded
+CSV has 35. Keep the actual-file count and document this discrepancy.
+
+2. EXPLORATORY DATA ANALYSIS — 15 points
+Status: implemented, needs report packaging.
+Evidence: 05_explore_training_data.py generates analysis/training_overview.png,
+training_numeric_summary.csv, training_category_counts.csv,
+training_outcome_comparison.csv and training_eda_summary.json.
+Covers class balance, distributions, grade/outcome relationships, blanks and coded unknowns.
+Finish: include readable plots/tables and explain what they show. analysis/ is ignored
+by Git, so the final report must include its evidence and the README must explain
+how to regenerate it. Do not imply these artifacts arrive in a fresh Git clone.
+
+3. PREPROCESSING — 10 points
+Status: implemented; explain it clearly in the report.
+Evidence: scripts 01–04; preprocessing.py; feature_plan.json; cleaning audit JSONs locally.
+Explain known category codes, preserved unknowns and zeros, encoding, scaling,
+excluded second-semester fields, the common stratified split, and fitting preparation
+inside validation folds. No blank-cell imputation was needed. Explain why no extra
+engineered feature was used rather than adding one just to fill a heading.
+
+4. CLASSIFICATION MODELLING AND EVALUATION — 20 points
+Status: implemented; needs a concise synthesis.
+The brief requires a baseline and at least TWO suitable classification methods.
+We have a baseline, logistic regression, decision tree and random forest.
+Evidence: scripts 08–18; results/*_folds.csv and summaries;
+results/final_test_metrics.json; results/column_importance_summary.csv.
+Finish: report accuracy, precision, recall, ROC-AUC and a confusion matrix; also
+include our promised F1 and clearly labelled precision-recall measures.
+Explain cutoff trade-offs and important features without claiming causation.
+Separate validation comparisons from the final test evaluation of B only.
+The original A/B comparison is supported by shared validation folds, not a final
+held-out A/B comparison. Explicitly document this departure from the proposal.
+Keep the locked model unchanged; do not optimize against the completed test results.
+
+5. APPLICATION AND USER INTERFACE — 20 points
+Status: basic required functionality implemented; usability verification unfinished.
+Evidence: app.py, app.css, .streamlit/config.toml and check_app.py.
+The brief requires useful interaction such as cohort filtering OR a sample prediction.
+The fictional profile form meets that type of interaction; both examples are not mandatory.
+Finish: check the complete experience at desktop and narrow widths, readable chart
+labels, empty selections, validation errors, and the missing-model setup message.
+Keep explanations understandable for a nontechnical audience.
+
+6. TEAM CONTRIBUTION SELF-ASSESSMENT — 5 points
+Status: final statements not present in this repository.
+Each member must briefly state their actual contribution in the final report;
+all members must participate in the presentation. Planned roles are not proof of work.
+Finish: collect each person's own factual account and allocate presentation sections.
+Do not invent contributions or imply AI-assisted code was independently authored.
+
+7. CODE AND REPRODUCIBILITY — 10 points
+Status: pipeline, dependencies and setup instructions exist; clean-environment check pending.
+Evidence: requirements.txt, README.md, numbered scripts and check_app.py.
+Finish: verify setup from a separate clean environment, the assigned data download,
+steps 01–04 and 19, and the app checks. Add understandable comments to meaningful
+blocks; keep ordinary pandas/scikit-learn code instead of unnecessary abstractions.
+Code Guide.txt gives the reading order and definitions.
+Never delete or overwrite the completed final evaluation just to run setup.
+The rebuild helper creates the app model using training data only.
+
+PROPOSAL COMMITMENTS / QUALITY IMPROVEMENTS (not separate mandatory rubric items)
+- Cohort filtering and explanations of individual profile contributions remain unimplemented.
+- Subgroup error review remains to do; excluding sensitive inputs does not establish fairness.
+- If the scope changes, explain it honestly in the report and align the team.
+- Fairness review can use saved validation predictions joined by source_row_index;
+  show denominators, avoid conclusions from very small groups, and do not retune on test data.
+- Scores have not been calibrated. Do not call 0.400 a confirmed 40% dropout probability.
+- No dropout dates establish a future prediction horizon; results are retrospective.
+
+RECOMMENDED WORK ORDER
+1. Assemble the report outline and select its existing EDA/model evidence.
+2. Complete the proposed subgroup error review and ethics discussion.
+3. Finish app usability checks and resolve unfulfilled proposal features with the team.
+4. Test fresh setup and package the approved intake, dictionary, report and runnable project.
+5. Add actual member contributions and rehearse the final presentation.
+
+TECHNICAL RULES VERIFIED
+Python and standard analytics libraries, including scikit-learn, are explicitly allowed.
+Cursor AI is suggested for app development. Every claim needs a table, plot, metric or source.
+This does not replace any separate course-wide academic-integrity or AI-disclosure rules.

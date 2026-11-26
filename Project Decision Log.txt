@@ -1,5 +1,10 @@
 STUDENT DROPOUT PROJECT — DECISION LOG
-Updated November 21, 2026
+Current status checked November 25, 2026
+
+CURRENT STATUS
+Steps 1–20 are complete as recorded below. Final Logistic B uses C=1 and cutoff 0.3.
+Earlier starting-plan sections are historical, not the current task list.
+See Requirements Review.txt for the submission checklist.
 
 PURPOSE
 Test whether first-semester results improve classification of recorded dropout outcomes compared with enrollment information alone. Missing dropout dates mean this is not validated forecasting of future dropout.
@@ -109,3 +114,5 @@ Step 18: Explained locked B model using final coefficients plus training-only va
 Step 19: Built simple local Streamlit app (Results, What mattered, fictional profile). Saved final pipeline and cutoff used for prediction; no retraining or test evaluation in app. Added training-only rebuild helper for fresh clones. Smoke checks passed for pages, filters, pipeline agreement, cutoff 0.3 (example score between 0.3 and 0.5), and invalid count blocking. Opened live dashboard in Chrome; widened metric layout to avoid clipping. Server runs on 127.0.0.1:8501. No profile persistence. Cohort filters/per-profile contributions not yet implemented; fairness/report still pending.
 
 Step 20: Scoped dashboard design polish using Impeccable and added fictional Alex walkthrough. No model retraining or new test evaluation. Both scenario scores checked against saved pipeline; invalid counts blocked. Full responsive visual inspection outstanding.
+
+November 25 — Requirements review: pulled main (already current), verified official updated-v2 brief on eClass, mapped seven rubric areas to repository evidence, corrected stale README status, and added explanatory comments without changing Python behavior. Remaining priorities: report/EDA evidence packaging, ethics and proposed subgroup review, app usability checks, clean setup verification, final intake/dictionary inclusion, and member-written contributions.

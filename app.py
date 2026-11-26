@@ -5,7 +5,9 @@ import joblib
 import pandas as pd
 import streamlit as st
 
+# Find files relative to this script, so the app does not depend on the terminal folder.
 folder = Path(__file__).resolve().parent
+# Set the browser title and load the shared dashboard appearance.
 st.set_page_config(page_title='Student dropout project', page_icon=':material/school:', layout='wide')
 st.html((folder / 'app.css').read_text())
 st.sidebar.title('Student dropout')
@@ -14,13 +16,16 @@ st.title('Student dropout project')
 st.caption('Does first-semester progress help us identify recorded dropout outcomes?')
 st.caption('Educational demonstration using one Portuguese institution. Use made-up profiles only. '
         'Do not use this app for real admission, funding or student-support decisions.')
+# The selected menu option decides which of the three pages is displayed.
 page = st.sidebar.radio('Explore', ['Results', 'What mattered', 'Try a made-up profile'])
 
+# Read saved evaluation results; opening the dashboard never trains a model.
 if page == 'Results':
     st.header('Final model: enrollment + first semester')
     report = json.loads((folder / 'results/final_test_metrics.json').read_text())
     st.write('Logistic regression, C = 1, cutoff = 0.3. Trained on 3,539 students '
              'and evaluated once on 885 reserved test students.')
+    # Show the four main metrics. Percentages are easier to read than decimals.
     columns = st.columns(4)
     for column, label, key in zip(columns, ['Accuracy', 'Precision', 'Recall', 'F1'],
                                    ['accuracy', 'precision', 'recall', 'F1']):
@@ -28,6 +33,7 @@ if page == 'Results':
     st.write('Recall: how many actual dropouts we caught. Precision: how many flagged '
              'students actually had a dropout outcome. F1 combines precision and recall.')
     st.subheader('Correct predictions and mistakes')
+    # Rows are the real outcomes; columns are the predictions, including mistakes.
     matrix = pd.DataFrame(
         [[report['true_negative'], report['false_positive']],
          [report['false_negative'], report['true_positive']]],
@@ -39,6 +45,7 @@ if page == 'Results':
     st.subheader('Compare A and B during validation')
     st.write('A uses enrollment inputs; B adds first-semester progress. These are the '
              'initial models at cutoff 0.5, before tuning. They are validation results, not test results.')
+    # Combine the initial experiments and average each model's five validation folds.
     comparison = pd.concat([pd.read_csv(folder / 'results' / filename) for filename in
                             ['first_models_folds.csv', 'decision_tree_folds.csv', 'random_forest_folds.csv']])
     view = comparison.groupby('model')[['accuracy', 'precision', 'recall', 'F1']].mean()
@@ -57,6 +64,7 @@ if page == 'Results':
                  'Results may not generalize to other institutions. Parental information '
                  'may reflect socioeconomic differences; subgroup fairness review remains needed.')
 
+# Display the saved shuffling experiment: larger performance drops mean more reliance.
 elif page == 'What mattered':
     st.header('Which columns did the model rely on?')
     st.write('We shuffled one column at a time in validation data. A larger drop in '
@@ -84,8 +92,10 @@ else:
     if not artifact_path.exists():
         st.warning('The local model file is missing. Follow the app setup instructions in README.md.')
         st.stop()
+    # Load our own saved pipeline, including its fitted preparation steps and classifier.
     artifact = joblib.load(artifact_path)
     model = artifact['pipeline']
+    # Use the categories learned during training as the dropdown options.
     encoder = model.named_steps['prepare'].named_transformers_['categories']
     category_columns = list(encoder.feature_names_in_)
     labels = {
@@ -93,14 +103,18 @@ else:
         'Previous qualification': 'Previous education',
         'Displaced': 'Studying away from usual residence',
     }
+    # These made-up starting values describe Alex; they are not a real student's record.
     defaults = {'Course': 'Nursing', 'Previous qualification': 'Secondary education',
                 "Mother's qualification": 'Unknown', "Father's qualification": 'Unknown',
                 "Mother's occupation": 'Not specified (source blank)',
                 "Father's occupation": 'Not specified (source blank)'}
+    # Collect each answer under the exact column name expected by the saved model.
     profile = {}
+    # Wait for the Calculate button so partially edited inputs are not scored.
     with st.form('profile'):
         st.subheader('1. Enrollment information')
         left, right = st.columns(2)
+        # Alternate dropdowns between two columns; i is the field's position.
         for i, (column, choices) in enumerate(zip(category_columns, encoder.categories_)):
             options = list(choices)
             default = defaults.get(column, options[0])
@@ -111,12 +125,14 @@ else:
         profile['Age at enrollment'] = left.number_input('Age at enrollment', 17, 100, 20)
         profile['Application order'] = right.number_input('Application preference order', 0, 9, 1,
                                                      help='Source codes are retained; order 0 has a documented ambiguity.')
+        # Convert the two yes/no choices to the same 0/1 codes used in training.
         profile['Daytime/evening attendance'] = int(left.selectbox('Attendance', ['Daytime', 'Evening']) == 'Daytime')
         profile['Displaced'] = int(right.selectbox(labels['Displaced'], ['No', 'Yes']) == 'Yes')
         st.divider()
         st.subheader('2. First-semester results')
         left, right = st.columns(2)
         prefix = 'Curricular units 1st sem '
+        # Each tuple gives the original field suffix, readable label, and example value.
         fields = [('credited', 'Courses credited from previous learning', 0),
                   ('enrolled', 'Courses enrolled', 6), ('evaluations', 'Assessment attempts', 6),
                   ('approved', 'Courses passed', 4), ('without evaluations', 'Courses without assessments', 0)]
@@ -124,13 +140,17 @@ else:
             profile[prefix + '(' + suffix + ')'] = (left if i % 2 == 0 else right).number_input(label, 0, 100, default)
         profile[prefix + '(grade)'] = right.number_input('Average grade (out of 20)', 0.0, 20.0, 12.0, step=0.1)
         submitted = st.form_submit_button('Calculate example score', type='primary', use_container_width=True)
+    # Check the course counts before making any prediction.
     if submitted:
         enrolled = profile[prefix + '(enrolled)']
         if any(profile[prefix + '(' + name + ')'] > enrolled for name in ['approved', 'credited', 'without evaluations']):
             st.error('Courses passed, credited, or without assessments cannot exceed courses enrolled in this demo.')
         else:
+            # Make a one-row table and put columns in the saved training order.
             row = pd.DataFrame([profile])[artifact['input_columns']]
+            # [0, 1] selects the first student's score for class 1 (dropout).
             score = float(model.predict_proba(row)[0, 1])
+            # Apply our chosen 0.3 cutoff rather than the classifier's default 0.5.
             cutoff = artifact['cutoff']
             st.divider()
             st.subheader('3. Read the result')

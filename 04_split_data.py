@@ -13,8 +13,10 @@ source = ROOT / 'data/selected_columns_step3.csv'
 source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
 data = pd.read_csv(source)
 assert data['Target'].isin(plan['target_mapping']).all()
+# Map the recorded outcome to 1 for dropout and 0 for the other outcomes.
 y = data['Target'].map(plan['target_mapping']).astype(int)
 # Row positions track membership only; they are never model inputs.
+# Keep similar dropout proportions in both groups; seed 42 makes the split repeatable.
 train_ids, test_ids = train_test_split(
     data.index.to_numpy(), test_size=plan['split_plan']['test_fraction'],
     stratify=y, random_state=plan['split_plan']['random_state'])
@@ -24,6 +26,7 @@ out = ROOT / 'data/split'
 out.mkdir(exist_ok=True)
 manifest = pd.DataFrame({'source_row_index': data.index, 'split': 'train', 'validation_fold': -1})
 manifest.loc[test_ids, 'split'] = 'test'
+# Divide only the training group into five reusable validation groups.
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 for fold, (_, validation_positions) in enumerate(cv.split(train_ids, y.loc[train_ids]), start=1):
     manifest.loc[train_ids[validation_positions], 'validation_fold'] = fold
@@ -36,6 +39,7 @@ report = {'source_sha256': source_hash, 'seed': 42,
                     'Shared rows and validation folds for both A and B.',
                     'Test files reserved for final evaluation; no model or learned preprocessing fitted.',
                     'Earlier full-data audits checked validity and codes, not predictive performance.']}
+# Save inputs and answers separately, keeping row numbers so they can be matched.
 for name, ids in [('train', train_ids), ('test', test_ids)]:
     features = data.loc[ids, plan['model_b_columns']].copy()
     assert 'Target' not in features and not any('2nd sem' in c for c in features)

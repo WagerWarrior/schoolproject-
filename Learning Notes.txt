@@ -389,3 +389,9 @@ Open the app and choose Try a made-up profile. Keep the default profile: age 20,
 Click Calculate example score: 0.400 (unrounded 0.3996734). The saved encoder and scaler turn inputs into model-ready numbers; the trained logistic model returns a score. At or above 0.3 is assigned Dropout. This is not a confirmed 40% probability or a prediction of Alex's future.
 Change only courses passed to 6 and calculate again: 0.117 (unrounded 0.1169080), below 0.3, so Other outcome. This demonstrates model behavior with other inputs held fixed, not causation.
 Design refinement: retained the existing blue identity and three-page navigation; tightened headings and spacing, paired numeric fields, added numbered walkthrough and result explanation, horizontal importance chart, and empty model-selection guidance. Model and cutoff unchanged. Functional checks passed, including direct prediction agreement for both fictional cases and invalid counts. Full desktop/mobile visual review remains incomplete because the browser was actively being used.
+
+
+November 25 — Working toward the final submission
+The official rubric gives 20 points each to the report, modelling/evaluation, and app; 15 to EDA; 10 each to preprocessing and reproducibility; and 5 to member contributions. These are available points, not an estimated grade.
+The main remaining work is explaining and packaging the evidence, not making the model more complicated. The app already meets the basic interaction requirement through a fictional profile form. Cohort filtering and individual contributions to the score are additional proposal commitments, not separately mandated features in the brief.
+Code comments explain meaningful blocks and why we use them. X means inputs, y means actual outcomes, fit means learn, predict_proba returns scores, and the cutoff converts those scores to labels. We checked that the comment changes leave the Python syntax trees unchanged.

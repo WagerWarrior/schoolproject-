@@ -10,6 +10,7 @@ from sklearn.metrics import (accuracy_score, precision_score, recall_score,
 from preprocessing import make_encoder
 
 folder = Path(__file__).resolve().parent
+# Load training inputs (X), answers (y), and the saved validation group for each row.
 X = pd.read_csv(folder / 'data/split/X_train.csv', index_col='source_row_index')
 y = pd.read_csv(folder / 'data/split/y_train.csv', index_col='source_row_index')['dropout']
 manifest = pd.read_csv(folder / 'data/split/split_manifest.csv', index_col='source_row_index')
@@ -17,6 +18,7 @@ folds = manifest.loc[X.index, 'validation_fold']
 plan = json.loads((folder / 'feature_plan.json').read_text())
 assert X.index.equals(y.index) and folds.between(1, 5).all()
 
+# Collect one set of measurements per model setting and validation fold.
 results = []
 predictions = []
 for version in ['A', 'B']:
@@ -57,6 +59,7 @@ for version in ['A', 'B']:
                 'score': scores, 'predicted': predicted,
             }))
 
+# Save fold results so comparisons can be reproduced and checked later.
 output = folder / 'results'
 output.mkdir(exist_ok=True)
 results = pd.DataFrame(results)

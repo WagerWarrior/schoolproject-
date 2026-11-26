@@ -5,6 +5,7 @@ import pandas as pd
 from streamlit.testing.v1 import AppTest
 
 folder = Path(__file__).resolve().parent
+# Run the app without a browser, then interact with its controls in this check.
 app = AppTest.from_file(str(folder / 'app.py')).run(timeout=30)
 assert not app.exception
 assert [item.value for item in app.metric] == ['81.0%', '68.4%', '76.1%', '0.720']
@@ -24,6 +25,7 @@ numeric_columns = ['Age at enrollment', 'Application order',
                    'Curricular units 1st sem (credited)', 'Curricular units 1st sem (enrolled)',
                    'Curricular units 1st sem (evaluations)', 'Curricular units 1st sem (approved)',
                    'Curricular units 1st sem (without evaluations)', 'Curricular units 1st sem (grade)']
+# Match inputs by their displayed labels so moving fields does not break the check.
 labels = ['Age at enrollment', 'Application preference order', 'Courses credited from previous learning',
           'Courses enrolled', 'Assessment attempts', 'Courses passed', 'Courses without assessments',
           'Average grade (out of 20)']
@@ -39,6 +41,7 @@ assert 0.3 < expected < 0.5  # Distinguishes our locked cutoff from the default 
 assert any('**Dropout**' in item.value for item in app.markdown)
 
 print('Alex baseline:', expected)
+# Change only courses passed and verify that the app still matches the saved pipeline.
 next(w for w in app.number_input if w.label == 'Courses passed').set_value(6)
 app.button[0].click().run()
 assert not app.exception and not app.error

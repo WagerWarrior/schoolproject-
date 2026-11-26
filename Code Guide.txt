@@ -1,0 +1,60 @@
+STUDENT DROPOUT PROJECT — SIMPLE CODE GUIDE
+
+Start with the question: does adding first-semester information improve classification
+of recorded dropout outcomes compared with enrollment information alone?
+A uses 11 inputs. B uses those 11 plus 6 semester-one inputs.
+
+READ THE CODE IN THIS ORDER
+01_clean_unknown_codes.py: replace documented category codes with readable labels.
+02_check_numeric_columns.py: check ages, course counts and grades for invalid values.
+03_check_enrollment_categories.py: check and decode the remaining categories.
+04_split_data.py: create training/test groups and five training-only validation folds.
+05_explore_training_data.py: summarize the training students and make overview plots.
+06_preview_one_hot_encoding.py: demonstrate turning categories into 0/1 columns.
+07_preview_scaling.py: demonstrate putting numerical inputs on comparable scales.
+preprocessing.py: build fresh preparation steps for use inside model training.
+08_train_first_models.py: compare the baseline and logistic regression for A and B.
+09_review_errors.py: visualize the initial models' correct predictions and mistakes.
+10_train_decision_tree.py: train initial depth-3 decision trees.
+11_train_random_forest.py: train initial forests of 100 trees.
+12_try_tree_depth5.py and 13_try_tree_depth7.py: compare alternative tree depths.
+14_tune_logistic_c.py: compare three strengths of the penalty on large weights.
+15_tune_forest_leaf.py: compare three minimum tree-leaf sizes.
+16_compare_cutoffs.py: compare score cutoffs using existing validation predictions.
+17_evaluate_final_model.py: evaluate the locked model once. Already completed;
+    read results/final_test_metrics.json rather than rerunning it for tuning.
+18_explain_model.py: examine model weights and validation permutation importance.
+19_build_app_model.py: rebuild a missing app model using training rows only.
+app.py: show saved results and score a fictional profile with the saved model.
+check_app.py: verify page controls, example scores, cutoff and invalid inputs.
+app.css: shared appearance rules; it does not affect predictions.
+
+WORDS YOU SHOULD BE ABLE TO EXPLAIN
+X: the inputs, such as age and courses passed.
+y: the actual outcome, coded 1 for dropout and 0 for enrolled or graduated.
+DataFrame: a table in pandas.
+.loc: select rows/columns by labels or by a true/false condition.
+fit: learn values from the training examples.
+transform: apply preparation already learned from training examples.
+Pipeline: run preparation and the classifier together in the correct order.
+predict_proba: return model scores for each class. Calibration has not been checked.
+[:, 1]: take the class-1 score for every row. [0, 1]: take it for the first row.
+cutoff: the rule converting a score to a label; ours is 0.3.
+assert: stop if an expected condition is false, such as mismatched student rows.
+groupby: collect rows with the same label to calculate summaries.
+mean: average; std: how much the values vary around their average.
+seed: a fixed number making random splits repeatable.
+
+EXPLAIN THE FORM IN ONE MINUTE
+The form collects a made-up profile. It checks that course counts are consistent.
+It puts answers into a one-row table in the model's expected column order.
+The saved preparation converts categories and scales numbers. The trained model
+returns a score, and the saved 0.3 cutoff turns that score into a class.
+It does not retrain or save the entered profile. Alex's default score is about
+0.400; changing only courses passed from 4 to 6 gives about 0.117.
+
+COMMENT STYLE
+Explain the purpose of each meaningful block, especially the reason for a check
+or model choice. Keep variable names readable and use standard library functions.
+Do not add a comment that merely repeats every obvious assignment. Be able to
+explain the code and accurately describe any assistance used according to course rules.

@@ -38,6 +38,7 @@ manifest = pd.read_csv(folder / 'data/split/split_manifest.csv', index_col='sour
 folds = manifest.loc[X.index, 'validation_fold']
 assert X.index.equals(y.index) and folds.between(1, 5).all()
 rows = []
+# Refit within each training fold so importance is measured on unseen validation rows.
 for fold in range(1, 6):
     train_rows = folds != fold
     validation_rows = folds == fold
@@ -58,6 +59,7 @@ for fold in range(1, 6):
 
 details = pd.DataFrame(rows)
 details.to_csv(output / 'column_importance_repeats.csv', index=False)
+# Average the repeated importance checks and record how much they vary.
 summary = details.groupby('column')['average_precision_drop'].agg(['mean', 'std'])
 summary = summary.sort_values('mean', ascending=False)
 summary.to_csv(output / 'column_importance_summary.csv')

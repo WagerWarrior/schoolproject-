@@ -16,6 +16,7 @@ from preprocessing import make_preprocessor
 folder = Path(__file__).resolve().parent
 output = folder / 'results'
 report_path = output / 'final_test_metrics.json'
+# Protect the completed evaluation from being accidentally overwritten.
 if report_path.exists():
     raise SystemExit('Final evaluation already exists. Read it instead of rerunning or tuning on test data.')
 config = json.loads((folder / 'final_model_config.json').read_text())
@@ -46,10 +47,14 @@ manifest = pd.read_csv(folder / 'data/split/split_manifest.csv', index_col='sour
 assert manifest.loc[X_train.index, 'split'].eq('train').all()
 assert manifest.loc[X_test.index, 'split'].eq('test').all()
 
+# Score unseen test rows with the trained pipeline; no learning happens here.
 scores = model.predict_proba(X_test[columns])[:, 1]
+# Convert scores into labels using the cutoff chosen during validation.
 predicted = (scores >= config['cutoff']).astype(int)
+# Count correct other outcomes, false alarms, missed dropouts, and caught dropouts.
 tn, fp, fn, tp = confusion_matrix(y_test, predicted, labels=[0, 1]).ravel()
 curve_precision, curve_recall, _ = precision_recall_curve(y_test, scores)
+# Store the metrics and context needed to explain the final evaluation.
 report = {
     'evaluated_at_utc': datetime.now(timezone.utc).isoformat(),
     'configuration': config,

@@ -11,6 +11,7 @@ from sklearn.metrics import (accuracy_score, precision_score, recall_score,
 from preprocessing import make_encoder
 
 folder = Path(__file__).resolve().parent
+# Load training inputs (X), answers (y), and the saved validation group for each row.
 X = pd.read_csv(folder / 'data/split/X_train.csv', index_col='source_row_index')
 y = pd.read_csv(folder / 'data/split/y_train.csv', index_col='source_row_index')['dropout']
 manifest = pd.read_csv(folder / 'data/split/split_manifest.csv', index_col='source_row_index')
@@ -28,6 +29,7 @@ def make_model(name):
         ('classifier', RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)),
     ])
 
+# Collect one set of measurements per model setting and validation fold.
 results = []
 predictions = []
 names = ['Forest A', 'Forest B']
@@ -62,6 +64,7 @@ for name in names:
             'actual': actual.to_numpy(), 'score': scores, 'predicted': predicted,
         }))
 
+# Save fold results so comparisons can be reproduced and checked later.
 output = folder / 'results'
 output.mkdir(exist_ok=True)
 results = pd.DataFrame(results)
